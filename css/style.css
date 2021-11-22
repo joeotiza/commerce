@@ -1,0 +1,294 @@
+#header
+{
+	height:60px;
+	width:100%;
+	background-color:#006400;
+	color:#fff;
+	text-indent:10px;
+	-webkit-box-shadow:0px 0px 20px 0px black;
+	-moz-box-shadow:0px 0px 20px 0px black;
+	box-shadow:0px 0px 20px 0px black;
+}
+
+#header img
+{
+	position:absolute;
+	height:45px;
+	width:45px;
+	margin-left:20px;
+	margin-top:2.5px;
+}
+
+#header label
+{
+	position:relative;
+	top:20px;
+	color:#fff;
+	text-indent:80px;
+	font-size:40px;
+	clear:both;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: bold;
+}
+
+#header ul
+{
+	list-style-type:none;
+	position:relative;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+#header ul li
+{
+	display:inline;
+	position:relative;
+	font-size: 20px;
+	float:right;
+	margin-right:20px;
+}
+
+#header ul li a
+{
+	text-decoration:none;
+	color:#fff;
+	display: block;
+	transition: all 0.3s ease-out;
+}
+
+#header ul li a:hover
+{
+	color: #90ee90;
+	transform: scale(1.1,1.1);
+}
+
+#container
+	{
+		margin:auto;
+		width:1150px;
+	}
+
+#admin form
+{
+	position:relative;
+	width:350px;
+	height:200px;
+	margin:auto;
+	margin-top:5%;
+}
+
+.nav {
+		text-indent:10px;
+		font-size:15px;
+	}
+.nav ul li{
+		display:inline;
+		position:relative;
+}
+.nav ul li a
+	{
+		text-decoration:none;
+		color:#000;
+	}
+
+.nav ul li a:hover
+	{
+		color:#999;
+	}
+
+	.nav li a
+		{
+		padding:10px;
+		}
+
+#product
+	{
+		position:relative;
+		width:1150px;
+		height:auto;
+	}
+
+	#carousel
+		{
+			position:relative;
+			float:left;
+			width:700px;
+			height:300px;
+		}
+
+	.carousel
+		{
+			width:700px;
+			height:300px;
+			margin-left: 10px;
+		}
+
+.float
+	{
+		width:300px;
+		height:330px;
+		float:left;
+		margin-left:55px;
+		margin-bottom:15px;
+		font-size:17px;
+	}
+
+.float img
+	{
+		width:300px;
+		height:230px;
+	}
+
+
+#product img:hover
+	{
+		border:8px groove #ccc;
+		width:280px;
+		height:210px;
+	}
+
+.active
+	{
+		color:#000;
+		border-bottom:5px solid #111;
+		padding:10px;
+	}
+
+#footer
+	{
+		position:relative;
+		color:#fff;
+		width:100%;
+		height:150px;
+		clear:both;
+		background:linear-gradient(#2f2f2f ,#000);
+		background:-moz-linear-gradient(#2f2f2f ,#000);
+		background:-webkit-linear-gradient(#2f2f2f ,#000);
+		-webkit-box-shadow:0px 0px 20px 0px black;
+		-moz-box-shadow:0px 0px 20px 0px black;
+		box-shadow:0px 0px 20px 0px black;
+		border-top:1px solid black;
+	}
+.foot
+	{
+		font-size:20px;
+		position:relative;
+		margin-top:30px;
+		margin-left:80px;
+		float:left;
+	}
+
+#foot
+	{
+		position:relative;
+		float:left;
+		margin-left:21%;
+	}
+
+#foot ul a li
+	{
+		text-decoration:none;
+		display:block;
+		color:#fff;
+	}
+
+#foot ul a li:hover
+	{
+		-webkit-box-shadow:2px 2px 2px black;
+		-moz-box-shadow:2px 2px 2px black;
+		box-shadow:2px 2px 2px black;
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius:5px;
+		position:relative;
+	}
+
+#develop
+	{
+		position:relative;
+		float:right;
+		margin-right:15%;
+	}
+
+#develop ul a li
+	{
+		text-decoration:none;
+		display:block;
+		color:#fff;
+	}
+
+#develop ul a li:hover
+	{
+		-webkit-box-shadow:2px 2px 2px black;
+		-moz-box-shadow:2px 2px 2px black;
+		box-shadow:2px 2px 2px black;
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius:5px;
+		position:relative;
+	}
+
+#leftnav
+	{
+		position:fixed;
+		background-color:#006400;
+		width:200px;
+		top:8%;
+		height:750px;
+	}
+
+#leftnav ul
+	{
+		list-style-type:none;
+		text-indent:35px;
+		right:25px;
+		position:relative;
+	}
+
+#leftnav ul li
+	{
+		border-bottom:1px solid #333;
+		padding-top:10px;
+		padding-bottom:10px;
+		width:200px;
+	}
+
+#leftnav ul li a
+	{
+		text-decoration:none;
+		color:#fff;
+		font-size:20px;
+		transition: all 0.3s ease-out;
+	}
+
+#leftnav ul li a:hover
+	{
+		color: #90ee90;
+		transform: scale(1.1,1.1);
+	}
+
+#leftnav ul li ul
+	{
+		display:none;
+	}
+
+#leftnav ul li:hover ul
+	{
+		display:block;
+	}
+
+#leftnav ul li:hover ul li
+	{
+		padding:0;
+		border:0px solid #111;
+	}
+
+
+
+#rightcontent
+	{
+		position:relative;
+		width:1025px;
+		top:50px;
+		left:220px;
+		z-index:-99999;
+	}
