@@ -25,6 +25,7 @@
 	<script src="../js/transition.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../javascripts/filter.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="header" style="position:fixed;">
@@ -39,8 +40,8 @@
 			?>
 
 			<ul>
-				<li><a href="../function/admin_logout.php">Logout</a></li>
-				<li><a><?php echo $fetch['username']; ?></a></li>
+				<li><a href="../function/admin_logout.php"><i class='fas fa-power-off'></i> Logout</a></li>
+				<li><a><i class='fas fa-user-circle'></i> <?php echo $fetch['username']; ?></a></li>
 				<li>Welcome:</li>
 			</ul>
 	</div>
@@ -61,8 +62,10 @@
 					<li><a href="admin_snacks.php"style="font-size:15px; margin-left:15px;">Snacks</a></li>
 				</ul>
 			</li>
+			<li><a href="transaction.php">Transactions</a></li>
 			<li><a href="customer.php">Customers</a></li>
 			<li><a href="message.php">Messages</a></li>
+			<li><a href="order.php">Orders</a></li>
 		</ul>
 	</div>
 
