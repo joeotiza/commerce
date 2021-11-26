@@ -1,2 +1,4 @@
+Have XAMPP preinstalled.
+Start Apache and MySQL from the XAMPP control panel.
 Download then extract.
-Import the database commerce.sql located in the db folder.
+Import the database commerce.sql located in the db folder into the localhost phpMyAdmin.
