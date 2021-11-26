@@ -23,6 +23,7 @@
 	<script src="js/alert.js"></script>
 	<script src="js/transition.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="header">
@@ -35,10 +36,10 @@
         $fetch = $query->fetch_array ();
     ?>
 
-    <ul>
-      <li><a href="function/logout.php">Logout</a></li>
+		<ul>
+      <li><a href="function/logout.php"><i class='fas fa-power-off'></i> Logout</a></li>
 
-      <li><a href="#profile" href  data-toggle="modal"><?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
+      <li><a href="#profile" href  data-toggle="modal"><i class='fas fa-user-circle'></i> <?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
 			<li>Welcome:</li>
 		</ul>
 </div>
@@ -90,14 +91,14 @@
 <div id="content">
 	<div class="nav">
 
-		 <ul>
-			<li><a href="home.php"><i class="icon-home"></i>Home</a></li>
-			<li><a href="product1.php"><i class="icon-th-list"></i>Product</a>
-			<li><a href="aboutus.php"><i class="icon-bookmark"></i>About Us</a></li>
-			<li><a href="contactus.php"><i class="icon-inbox"></i>Contact Us</a></li>
-			<li><a href="privacy.php"><i class="icon-info-sign"></i>Privacy Policy</a></li>
-			<li><a href="faqs.php"><i class="icon-question-sign"></i>FAQs</a></li>
-		</ul>
+		<ul>
+		 <li><a href="home.php"><i class='fas fa-home'></i> Home</a></li>
+		 <li><a href="product1.php"><i class='fas fa-bars'></i> Product</a>
+		 <li><a href="aboutus.php"><i class='fas fa-info-circle'></i> About Us</a></li>
+		 <li><a href="contactus.php"><i class='fas fa-envelope'></i> Contact Us</a></li>
+		 <li><a href="privacy.php"><i class='fas fa-unlock-alt'></i> Privacy Policy</a></li>
+		 <li><a href="faqs.php"><i class='fas fa-question-circle'></i> FAQs</a></li>
+	 </ul>
 	</div>
 
 	<div id="content">

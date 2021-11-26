@@ -23,6 +23,7 @@
 	<script src="js/alert.js"></script>
 	<script src="js/transition.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="header">
@@ -36,10 +37,11 @@
     ?>
 
 		<ul>
-				<li><a href="function/logout.php">Logout</a></li>
-				<li><a href="#profile" href  data-toggle="modal"><?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
-				<li>Welcome:</li>
-			</ul>
+      <li><a href="function/logout.php"><i class='fas fa-power-off'></i> Logout</a></li>
+
+      <li><a href="#profile" href  data-toggle="modal"><i class='fas fa-user-circle'></i> <?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
+			<li>Welcome:</li>
+		</ul>
 	</div>
 
 		<div id="profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:700px;">

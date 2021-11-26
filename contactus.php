@@ -24,6 +24,7 @@
 	<script src="js/alert.js"></script>
 	<script src="js/transition.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="header">
@@ -38,8 +39,9 @@
 			?>
 
 			<ul>
-				<li><a href="function/logout.php"><i class="icon-off icon-white"></i>logout</a></li>
-				<li><a href="#profile" href  data-toggle="modal"><i class="icon-user icon-white"></i><?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
+	      <li><a href="function/logout.php"><i class='fas fa-power-off'></i> Logout</a></li>
+
+	      <li><a href="#profile" href  data-toggle="modal"><i class='fas fa-user-circle'></i> <?php echo $fetch['firstname']; ?>&nbsp;<?php echo $fetch['lastname'];?></a></li>
 				<li>Welcome:</li>
 			</ul>
 	</div>
@@ -87,14 +89,14 @@
 	<br>
 <div id="container">
 	<div class="nav">
-			 <ul>
-				<li><a href="home.php">   <i class="icon-home"></i>Home</a></li>
-				<li><a href="product1.php"> 			 <i class="icon-th-list"></i>Product</a></li>
-				<li><a href="aboutus.php">   <i class="icon-bookmark"></i>About Us</a></li>
-				<li><a href="contactus.php"><i class="icon-inbox"></i>Contact Us</a></li>
-				<li><a href="privacy.php"><i class="icon-info-sign"></i>Privacy Policy</a></li>
-				<li><a href="faqs.php"><i class="icon-question-sign"></i>FAQs</a></li>
-			</ul>
+		<ul>
+		 <li><a href="home.php"><i class='fas fa-home'></i> Home</a></li>
+		 <li><a href="product1.php"><i class='fas fa-bars'></i> Product</a>
+		 <li><a href="aboutus.php"><i class='fas fa-info-circle'></i> About Us</a></li>
+		 <li><a href="contactus.php"><i class='fas fa-envelope'></i> Contact Us</a></li>
+		 <li><a href="privacy.php"><i class='fas fa-unlock-alt'></i> Privacy Policy</a></li>
+		 <li><a href="faqs.php"><i class='fas fa-question-circle'></i> FAQs</a></li>
+	 </ul>
 	</div>
 
 
@@ -112,7 +114,7 @@
 						<td style="font-size:20px;">Message:</td><td><textarea name="message" style="width:400px; height:300px;" required></textarea></td>
 					</tr>
 					<tr>
-						<td></td><td><button class="btn btn-info" name="send" style="width:300px;">Submit</button>&nbsp;<a href="index.php"><button class="btn btn-danger" style="width:110px;">Cancel</button></a></td>
+						<td></td><td><button class="btn btn-info" name="send" style="width:300px;"><i class='fas fa-check'></i> Submit</button>&nbsp;<a href="index.php"><button class="btn btn-danger" style="width:110px;"><i class='fas fa-times'></i> Cancel</button></a></td>
 					</tr>
 				</table>
 			</form>
@@ -125,7 +127,7 @@
 				@$email = $_POST['email'];
 				@$message = $_POST['message'];
 
-				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email','$message')") or die (mysqli_error());
+				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email','$message')") ;
 			}
 		?>
 

@@ -84,16 +84,11 @@
 
 <br>
 <div id="container">
-
-
-
-
-<div id="content">
 	<div class="nav">
 
 		 <ul>
 			<li><a href="home.php"><i class='fas fa-home'></i> Home</a></li>
-			<li><a href="product1.php"><i class='fas fa-bars'></i> Product</a>
+			<li><a href="product.php"><i class='fas fa-bars'></i> Product</a>
 			<li><a href="aboutus.php"><i class='fas fa-info-circle'></i> About Us</a></li>
 			<li><a href="contactus.php"><i class='fas fa-envelope'></i> Contact Us</a></li>
 			<li><a href="privacy.php"><i class='fas fa-unlock-alt'></i> Privacy Policy</a></li>
@@ -101,51 +96,50 @@
 		</ul>
 	</div>
 
+	<form method="post" class="well"  style="background-color:#fff; overflow:hidden;">
+	<table class="table" style="width:50%;">
+	<label style="font-size:25px;">Summary of Order</label>
+		<tr>
+			<th><h5>Quantity</h5></td>
+			<th><h5>Product Name</h5></td>
+			<th><h5>Brand</h5></td>
+			<th><h5>Price</h5></td>
+		</tr>
+
+		<?php
+		$t_id = $_GET['tid'];
+		$query = $conn->query("SELECT * FROM transaction WHERE transactionid = '$t_id'") or die (mysqli_error());
+		$fetch = $query->fetch_array();
+
+		$amnt = $fetch['amount'];
+		$t_id = $fetch['transactionid'];
+
+		$query2 = $conn->query("SELECT * FROM transactiondetail LEFT JOIN product ON product.productid = transactiondetail.productid WHERE transactiondetail.transactionid = '$t_id'") or die (mysqli_error());
+		while($row = $query2->fetch_array()){
+
+		$pname = $row['name'];
+		$pbrand = $row['brand'];
+		$pprice = $row['price'];
+		$oqty = $row['quantity'];
+
+		echo "<tr>";
+		echo "<td>".$oqty."</td>";
+		echo "<td>".$pname."</td>";
+		echo "<td>".$pbrand."</td>";
+		echo "<td>".number_format($pprice)."</td>";
+		echo "</tr>";
+		}
+		?>
+
+	</table>
+	<legend></legend>
+	<h4>TOTAL: Ksh.<?php echo number_format($amnt); ?></h4>
+	</form>
+
+	<div class='pull-right'>
+<div class="">
+    <form action="" method="post" >
+    <input type="image" src="img/confirm.jpg" height='100px' border="0" name="submit" alt="Confirm Order">
+    </form>
 </div>
-</div>
-
-<div id="carousel">
-			<div id="myCarousel" class="carousel slide">
-				<div class="carousel-inner">
-					<div class="active item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner1.jpg" class="carousel"></div>
-					<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner2.jpg" class="carousel"></div>
-					<div class="item" style="padding:0; border-bottom:0 solid #111;"><img src="img/banner3.jpg" class="carousel"></div>
-				</div>
-					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-					<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-			</div>
-		</div>
-
-		<div id="product" style="position:relative;">
-					<center><h2><legend>Featured Items</legend></h2></center>
-					<br />
-
-					<?php
-
-						$query = $conn->query("SELECT * FROM (SELECT * FROM product) _t ORDER BY RAND() LIMIT 9;") or die (mysqli_error());
-
-							while($fetch = $query->fetch_array())
-								{
-
-								$pid = $fetch['productid'];
-
-								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
-								$rows = $query1->fetch_array();
-
-								$qty = $rows['quantity'];
-
-									echo "<div class='float'>";
-									echo "<center>";
-									echo "<a href='details.php?id=".$fetch['productid']."'><img class='img-polaroid' src='photo/".$fetch['image']."' height = '300px' width = '300px'></a>";
-									echo "".$fetch['name']."";
-									echo "<br />";
-									echo "Ksh.".number_format($fetch['price'])."";
-									echo "<br />";
-									echo "<h3 class='text-info' style='position:absolute; margin-top:-90px; text-indent:15px;'> ".$fetch['brand']."</h3>";
-									echo "</center>";
-									echo "</div>";
-
-
-								}
-					?>
-				</div>
+	</div>
