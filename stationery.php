@@ -84,6 +84,11 @@
 
 <br>
 <div id="container">
+
+
+
+
+<div id="content">
 	<div class="nav">
 
 		 <ul>
@@ -96,50 +101,62 @@
 		</ul>
 	</div>
 
-	<form method="post" class="well"  style="background-color:#fff; overflow:hidden;">
-	<table class="table" style="width:50%;">
-	<label style="font-size:25px;">Summary of Order</label>
-		<tr>
-			<th><h5>Quantity</h5></td>
-			<th><h5>Product Name</h5></td>
-			<th><h5>Brand</h5></td>
-			<th><h5>Price</h5></td>
-		</tr>
+	<div class="nav1">
+			<ul>
+				<li><a href="product.php">Electronics</a></li>
+				<li>|</li>
+				<li><a href="household.php">Household Supplies</a></li>
+				<li>|</li>
+				<li><a href="clothing.php">Clothing</a></li>
+				<li>|</li>
+				<li><a href="stationery.php" class="active" style="color:#111;">Stationery</a></li>
+				<li>|</li>
+				<li><a href="drinks.php">Drinks</a></li>
+				<li>|</li>
+				<li><a href="accessories.php">Accessories</a></li>
+				<li>|</li>
+				<li><a href="snacks.php">Snacks</a></li>
+			</ul>
+				<?php echo "<a href='cart.php?id=".$id."&action=view'><button class='btn btn-inverse' style='right:1%; position:fixed; top:10%;'><i class='fas fa-shopping-cart'></i> View Cart</button></a>" ?>
+		</div>
 
-		<?php
-		$t_id = $_GET['tid'];
-		$query = $conn->query("SELECT * FROM transaction WHERE transactionid = '$t_id'") or die (mysqli_error());
-		$fetch = $query->fetch_array();
+		<div id="content">
+				<br />
+				<br />
+				<div id="product">
+					<form method="post">
 
-		$amnt = $fetch['amount'];
-		$t_id = $fetch['transactionid'];
+					<?php
 
-		$query2 = $conn->query("SELECT * FROM transactiondetail LEFT JOIN product ON product.productid = transactiondetail.productid WHERE transactiondetail.transactionid = '$t_id'") or die (mysqli_error());
-		while($row = $query2->fetch_array()){
+						$query = $conn->query("SELECT *FROM product WHERE category='Stationery' ORDER BY productid DESC") or die (mysqli_error());
 
-		$pname = $row['name'];
-		$pbrand = $row['brand'];
-		$pprice = $row['price'];
-		$oqty = $row['quantity'];
+							while($fetch = $query->fetch_array())
+								{
 
-		echo "<tr>";
-		echo "<td>".$oqty."</td>";
-		echo "<td>".$pname."</td>";
-		echo "<td>".$pbrand."</td>";
-		echo "<td>".number_format($pprice)."</td>";
-		echo "</tr>";
-		}
-		?>
+								$pid = $fetch['productid'];
 
-	</table>
-	<legend></legend>
-	<h4>TOTAL: Ksh.<?php echo number_format($amnt); ?></h4>
-	</form>
+								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
+								$rows = $query1->fetch_array();
 
-	<div class='pull-right'>
-<div class="">
-    <form action="home.php" method="post" >
-    <input type="image" src="img/confirm.jpg" height='100px' border="0" name="submit" alt="Submit">
-    </form>
-</div>
-	</div>
+								$qty = $rows['quantity'];
+
+									echo "<div class='float'>";
+									echo "<center>";
+									echo "<a href='details.php?id=".$fetch['productid']."'><img class='img-polaroid' src='photo/".$fetch['image']."' height = '300px' width = '300px'></a>";
+									echo "".$fetch['name']."";
+									echo "<br />";
+									echo "Ksh.".number_format($fetch['price'])."";
+									echo "<br />";
+									echo "<h3 class='text-info' style='position:absolute; margin-top:-90px; text-indent:15px;'>".$fetch['brand']."</h3>";
+									echo "</center>";
+									echo "</div>";
+								}
+					?>
+
+					</form>
+				</div>
+
+
+
+
+			</div>
