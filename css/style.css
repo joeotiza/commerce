@@ -289,3 +289,27 @@
 		left:220px;
 		z-index:-99999;
 	}
+
+	.nav1
+		{
+			font-size:20px;
+			text-decoration:none;
+			text-align:center;
+		}
+
+	.nav1 ul li
+		{
+			padding:10px;
+			display:inline;
+		}
+
+	.nav1 ul li a
+		{
+			text-decoration:none;
+			color:#444;
+		}
+
+	.nav1 ul li a:hover
+		{
+			color:#111;
+		}
