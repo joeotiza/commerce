@@ -153,15 +153,13 @@
 		<div id="terms" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:400px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-				<h3 id="myModalLabel">Online Shoe Store Inc. Terms and Condition</h3>
+				<h3 id="myModalLabel">EasyBuy Terms and Condition</h3>
 			</div>
 				<div class="modal-body">
 					<ul>
 						<li>You are guaranteed that your product will be deliver 2-3 days upon ordering.</li>
 						<li>Guaranteed time maybe suspended depending on the weather conditions for the safety of our delivery personnel.</li>
-						<li>All prices quoted are in Philippine pesos. Price and availability information is subject to change without notice.</li>
-						<li>Mode of payment are as follows:customers with paypal account can pay through paypal otherwise Cash on Delivery(COD).</li>
-						<li>Upon receiving your product we will charge for delivering for only 150 pesos, depending on the location.</li>
+						<li>All prices quoted are in Kenya shillings. Price and availability information is subject to change without notice.</li>
 					</ul>
 				</div>
 			<div class="modal-footer">
