@@ -128,7 +128,7 @@
 
 					<?php
 
-						$query = $conn->query("SELECT *FROM product WHERE category='Accessories' ORDER BY productid DESC") or die (mysqli_error());
+						$query = $conn->query("SELECT *FROM product WHERE category='Accessories' ORDER BY brand, name") or die (mysqli_error());
 
 							while($fetch = $query->fetch_array())
 								{
