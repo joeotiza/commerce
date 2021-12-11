@@ -168,4 +168,8 @@
 		</div>
 
 </div>
-</div>
+
+<br>
+
+
+<?php require_once('footer.php'); ?>

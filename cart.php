@@ -280,3 +280,5 @@ if (isset($_SESSION['cart'])){
 						</form>
 				</div>
 			</div>
+
+			<?php require_once('footer.php'); ?>

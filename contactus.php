@@ -91,7 +91,7 @@
 	<div class="nav">
 		<ul>
 		 <li><a href="home.php"><i class='fas fa-home'></i> Home</a></li>
-		 <li><a href="product1.php"><i class='fas fa-bars'></i> Product</a>
+		 <li><a href="product.php"><i class='fas fa-bars'></i> Product</a>
 		 <li><a href="aboutus.php"><i class='fas fa-info-circle'></i> About Us</a></li>
 		 <li><a href="contactus.php"><i class='fas fa-envelope'></i> Contact Us</a></li>
 		 <li><a href="privacy.php"><i class='fas fa-unlock-alt'></i> Privacy Policy</a></li>
@@ -133,6 +133,8 @@
 
 	<br />
 </div>
+
+<?php require_once('footer.php'); ?>
 
 </body>
 </html>

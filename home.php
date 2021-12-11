@@ -201,3 +201,5 @@ if (isset($_SESSION['cart'])){
 							}
 					?>
 				</div>
+
+		<?php require_once('footer.php'); ?>
