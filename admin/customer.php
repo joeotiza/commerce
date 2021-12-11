@@ -86,7 +86,7 @@
 				</tr>
 				</thead>
 				<?php
-					$query = $conn->query("SELECT * FROM `customer`") or die(mysqli_error());
+					$query = $conn->query("SELECT * FROM `customer` ORDER BY firstname") or die(mysqli_error());
 					while($fetch = $query->fetch_array())
 						{
 				?>

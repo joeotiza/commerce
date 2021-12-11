@@ -105,7 +105,7 @@
           				<tbody>
           				<?php
 
-          					$query = $conn->query("SELECT * FROM transaction LEFT JOIN customer ON customer.customerid = transaction.customerid") or die(mysqli_error());
+          					$query = $conn->query("SELECT * FROM transaction LEFT JOIN customer ON customer.customerid = transaction.customerid ORDER BY transaction.date DESC") or die(mysqli_error());
           					while($fetch = $query->fetch_array())
           						{
           						$id = $fetch['transactionid'];
