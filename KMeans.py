@@ -1,6 +1,6 @@
 #importing relevant libraries
 #!/usr/bin/env python
-import sys ###new
+import sys
 import mysql.connector
 from sklearn.cluster import KMeans
 import numpy as np
@@ -22,6 +22,7 @@ mycursor.execute("SELECT * FROM transactionitems")
 ##kmeans.fit(X)
 ##print(kmeans.labels_)
 
+#fetch each column as an array
 results=mycursor.fetchall()
 cols=zip(*results)
 outlist=[]
@@ -30,12 +31,14 @@ for col in cols:
     type=arr.dtype
     outlist.append(np.asarray(arr, np.int32))
 
+#pop the first array with the transaction IDs
 outlist.pop(0)
 
 ##for i in outlist:
     ##print(i)
 
-kmeans=KMeans(n_clusters=5)
+#n_clusters is the number of clusters items will be grouped into
+kmeans=KMeans(n_clusters=7)
 kmeans.fit(outlist)
 ##print(kmeans.labels_)
 
