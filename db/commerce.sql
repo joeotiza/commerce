@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2021 at 02:30 PM
+-- Generation Time: Dec 11, 2021 at 04:25 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -245,12 +245,12 @@ INSERT INTO `stock` (`productid`, `quantity`) VALUES
 (40, 7),
 (41, 6),
 (42, 12),
-(43, 9),
+(43, 8),
 (44, 10),
-(45, 14),
-(46, 13),
+(45, 11),
+(46, 12),
 (47, 24),
-(48, 25),
+(48, 24),
 (49, 45),
 (50, 45),
 (51, 47),
@@ -279,6 +279,7 @@ INSERT INTO `transaction` (`transactionid`, `customerid`, `amount`, `date`, `sta
 (7, 3, 100000, '2021-12-10', 'Confirmed'),
 (11, 2, 130000, '2021-12-10', 'Confirmed'),
 (16, 2, 71400, '2021-12-10', 'Confirmed'),
+(17, 1, 79600, '2021-12-11', 'Confirmed'),
 (30, 4, 75575, '2021-12-10', 'Confirmed'),
 (33, 2, 255200, '2021-11-27', 'Confirmed'),
 (45, 1, 114500, '2021-12-10', 'Confirmed'),
@@ -299,7 +300,9 @@ INSERT INTO `transaction` (`transactionid`, `customerid`, `amount`, `date`, `sta
 (53181, 7, 345000, '2021-12-10', 'Confirmed'),
 (354070, 4, 114500, '2021-12-10', 'Confirmed'),
 (354071, 3, 1777, '2021-12-10', 'Confirmed'),
-(354072, 2, 70800, '2021-12-10', 'Confirmed');
+(354072, 2, 70800, '2021-12-10', 'Confirmed'),
+(354073, 1, 69600, '2021-12-11', 'Confirmed'),
+(354074, 1, 74600, '2021-12-11', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -340,6 +343,10 @@ INSERT INTO `transactiondetail` (`transactionid`, `productid`, `quantity`) VALUE
 (16, 45, 1),
 (16, 46, 1),
 (16, 48, 4),
+(17, 43, 1),
+(17, 45, 3),
+(17, 46, 1),
+(17, 48, 1),
 (30, 8, 1),
 (30, 9, 1),
 (30, 44, 1),
@@ -498,6 +505,7 @@ INSERT INTO `transactionitems` (`transactionid`, `1`, `2`, `3`, `4`, `5`, `6`, `
 (7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0),
+(17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0),
 (30, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0),
 (33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0),
 (45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -600,7 +608,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -612,7 +620,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transactionid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354073;
+  MODIFY `transactionid` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354075;
 
 --
 -- Constraints for dumped tables
