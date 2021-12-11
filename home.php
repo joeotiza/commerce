@@ -3,6 +3,7 @@
 	include("db/dbconn.php");
 ?>
 <!DOCTYPE html>
+<html>
 <head>
   <title>EasyBuy</title>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -203,3 +204,6 @@ if (isset($_SESSION['cart'])){
 				</div>
 
 		<?php require_once('footer.php'); ?>
+
+	</body>
+	</html>

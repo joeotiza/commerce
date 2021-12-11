@@ -3,6 +3,7 @@
 	include("db/dbconn.php");
 ?>
 <!DOCTYPE html>
+<html>
 <head>
   <title>EasyBuy</title>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -25,6 +26,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 	<div id="header">
 		<img src="img/logo.png">
@@ -141,3 +143,5 @@
 <br>
 
 <?php require_once('footer.php'); ?>
+</body>
+</html>

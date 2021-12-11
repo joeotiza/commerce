@@ -26,6 +26,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 	<div id="header">
 		<img src="img/logo.png">
