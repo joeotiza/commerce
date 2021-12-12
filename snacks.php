@@ -22,7 +22,7 @@
 				<li>|</li>
 				<li><a href="snacks.php" class="active" style="color:#111;">Snacks</a></li>
 			</ul>
-				<?php echo "<a href='cart.php?id=".$id."&action=view'><button class='btn btn-inverse' style='right:1%; position:fixed; top:10%;'><i class='fas fa-shopping-cart'></i> View Cart</button></a>" ?>
+				<?= "<a href='cart.php?id=".$id."&action=view'><button class='btn btn-inverse' style='right:1%; position:fixed; top:10%;'><i class='fas fa-shopping-cart'></i> View Cart</button></a>" ?>
 		</div>
 
 		<div id="content">
