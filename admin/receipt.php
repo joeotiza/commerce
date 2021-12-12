@@ -98,7 +98,7 @@
 
 			</table>
 			<legend></legend>
-			<h4>TOTAL: Ksh.<?php echo number_format($amnt); ?></h4>
+			<h4>TOTAL: Ksh.<?= number_format($amnt); ?></h4>
 			</center>
 			</div>
 

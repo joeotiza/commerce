@@ -30,8 +30,8 @@
 						{
 				?>
 				<tr>
-					<td><?php echo $fetch['email'];?></td>
-					<td><?php echo $fetch['message']?></td>
+					<td><?= $fetch['email'];?></td>
+					<td><?= $fetch['message']?></td>
 				</tr>
 				<?php
 					}
