@@ -38,21 +38,24 @@ outlist.pop(0)
     ##print(i)
 
 #n_clusters is the number of clusters items will be grouped into
-kmeans=KMeans(n_clusters=7)
+#fit the arrays into their relevant clusters using kmeans.fit
+kmeans=KMeans(n_clusters=9)
 kmeans.fit(outlist)
 ##print(kmeans.labels_)
 
 ##print (sys.argv[1])
 #k=2
-numberargs=int(sys.argv[1]);
+
+#sys.argv[k] are the inputs passed via command line
+numberargs=int(sys.argv[1]);#no. of items in cart
 k=1;
-similar=[];
+similar=[];#array holding IDs of items in the same cluster
 
 
 while k<=numberargs:
     ##idval = int(input("Enter your value: "))
     idval=int(sys.argv[k+1])
-    idval-=1
+    idval-=1#decrement since indices of array start at 0, not 1
     j=0
     while j < len(kmeans.labels_):
         if kmeans.labels_[j]==kmeans.labels_[idval] and j!=idval:
@@ -60,5 +63,5 @@ while k<=numberargs:
         j+=1
     k+=1;
 
-unique_ids = list(set(similar))
+unique_ids = list(set(similar))#eliminate duplicate IDs from the array
 print(unique_ids)
