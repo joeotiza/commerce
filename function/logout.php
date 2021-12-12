@@ -1,8 +1,7 @@
 <?php
 
-	session_start();
-	session_destroy();
+	session_start();//start the session
+	session_destroy();//destroy the session
 
-
-		header("location:../index.php");
+	header("location:../index.php");//redirect to index.php
 ?>

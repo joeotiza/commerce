@@ -2,9 +2,10 @@
 
 		include ("../db/dbconn.php");
 		include ("session.php");
-			if(ISSET($_POST['edit']));
-			{
-				$id = $_SESSION['id'];
+
+		if(ISSET($_POST['edit']));//name=edit form activated
+		{
+				$id = $_SESSION['id'];//session ID global variable
 
 				$firstname=$_POST['firstname'];
 				$lastname=$_POST['lastname'];

@@ -16,9 +16,9 @@ if (isset($_POST['enter']))
 
 						if ($run_num_rows > 0 )
 						{
-							session_start ();
-							$_SESSION['id'] = $row['adminid'];
-							header ("location:admin_home.php");
+							session_start ();//start the session
+							$_SESSION['id'] = $row['adminid'];//set session variable for ID
+							header ("location:admin_home.php");//redirect to admin_home
 						}
 
 						else
