@@ -48,7 +48,7 @@
 						<br />
 						<h4>Total: Ksh.<?php echo number_format($row['price']); ?> </h4>
 						<br />
-						<input type="checkbox" required> I Agree the <a href="#terms" data-toggle="modal"> Terms and Condition</a> of Online Shoe Store Inc.
+						<input type="checkbox" required> I Agree the <a href="#terms" data-toggle="modal"> Terms and Condition</a> of EasyBuy Inc.
 					</center>
 				</div>
 			<div class="modal-footer">

@@ -48,9 +48,11 @@
 
 	<div class='pull-right'>
 <div class="">
-    <form action="home.php" method="post" >
-    <input type="image" src="img/confirm.jpg" height='100px' border="0" name="submit" alt="Submit">
-    </form>
+    <form action="function/confirm.php" method="post" >
+			<?php
+    echo "<input type='image' src='img/confirm.jpg' height='100px' border='0' name='submit' alt='Confirm'>";
+		 ?>
+		</form>
 </div>
 	</div>
 </div>

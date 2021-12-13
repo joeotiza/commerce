@@ -33,17 +33,13 @@
 
 					<?php
 
-						$query = $conn->query("SELECT *FROM product WHERE category='Household Supplies' ORDER BY brand, name") or die (mysqli_error());
+						$query = $conn->query("SELECT * FROM product LEFT JOIN stock ON product.productid=stock.productid WHERE category='Household Supplies' AND stock.quantity>0 ORDER BY brand, name") or die (mysqli_error());
 
 							while($fetch = $query->fetch_array())
 								{
 
 								$pid = $fetch['productid'];
-
-								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
-								$rows = $query1->fetch_array();
-
-								$qty = $rows['quantity'];
+								$qty = $fetch['quantity'];
 
 									echo "<div class='float'>";
 									echo "<center>";

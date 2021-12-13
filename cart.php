@@ -59,20 +59,29 @@
 			break;
 		}
 	if (isset($_SESSION['cart']))
-		{
+	{
 
 		$total=0;
 		foreach($_SESSION['cart'] as $id => $x)
 		{
-		$result=$conn->query("Select * from product where productid=$id");
-		$myrow=$result->fetch_array();
-		$name=$myrow['name'];
-		$name=substr($name,0,40);
-		$price=$myrow['price'];
-		$image=$myrow['image'];
-		$product_brand=$myrow['brand'];
-		$line_cost=$price*$x;
-		$total=$total+$line_cost;
+			$result=$conn->query("Select * from product LEFT JOIN stock ON product.productid=stock.productid where product.productid=$id");
+			$myrow=$result->fetch_array();
+			$name=$myrow['name'];
+			$name=substr($name,0,40);
+			$price=$myrow['price'];
+			$image=$myrow['image'];
+			$product_brand=$myrow['brand'];
+			$in_stock=(int)$myrow['quantity'];
+			$line_cost=$price*$x;
+			$total=$total+$line_cost;
+
+			if ($x > $in_stock)
+			{
+				$x=$in_stock;
+				$_SESSION['cart'][$id]--;
+				$line_cost=$price*$x;
+				echo "<script>alert('Sorry, only ".$in_stock." ".$name."\'s in stock.');</script>";
+			}
 
 
 			echo "<tr class='table'>";
@@ -85,20 +94,20 @@
 			echo "<td><h4><a href='cart.php?id=".$id."&action=remove'><i class='fas fa-minus-circle'></i></a></td>";
 			echo "<td><strong><h3>Ksh.".number_format($line_cost)."</h3></strong>";
 			echo "</tr>";
-			}
-
-			echo"<tr>";
-			echo "<td></td>";
-			echo "<td></td>";
-			echo "<td></td>";
-			echo "<td></td>";
-			echo "<td><h2>TOTAL:</h2></td>";
-			echo "<td colspan=2><strong><input type='hidden' value='".$total."' required name='total'><h2 class='text-danger'>Ksh.".number_format($total)."</h2></strong></td>";
-			echo "<td><a class='btn btn-danger btn-sm pull-right' href='cart.php?id=".$id."&action=empty'><i class='fa fa-trash-o'></i> Empty cart</a></td>";
-			echo "</tr>";
 		}
-	 	else
-			echo "<font color='#111' class='alert alert-error' style='float:right'>Cart is empty</font>";
+
+		echo"<tr>";
+		echo "<td></td>";
+		echo "<td></td>";
+		echo "<td></td>";
+		echo "<td></td>";
+		echo "<td><h2>TOTAL:</h2></td>";
+		echo "<td colspan=2><strong><input type='hidden' value='".$total."' required name='total'><h2 class='text-danger'>Ksh.".number_format($total)."</h2></strong></td>";
+		echo "<td><a class='btn btn-danger btn-sm pull-right' href='cart.php?id=".$id."&action=empty'><i class='fa fa-trash-o'></i> Empty cart</a></td>";
+		echo "</tr>";
+	}
+	else
+		echo "<font color='#111' class='alert alert-error' style='float:right'>Cart is empty</font>";
 
 	?>
 		</table>
@@ -143,17 +152,13 @@ if (isset($_SESSION['cart'])){
 						$in_cart=substr($in_cart,0,-1);
 						//echo $in_cart;
 
- 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
+ 						$query = $conn->query("SELECT * FROM (SELECT product.productid, product.brand,product.category,product.image,product.name,product.price,stock.quantity FROM product LEFT JOIN stock ON product.productid=stock.productid WHERE stock.quantity>0 AND product.productid IN ($rec_ids) AND product.productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
 
  							while($fetch = $query->fetch_array())
  								{
 
  								$pid = $fetch['productid'];
-
- 								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
- 								$rows = $query1->fetch_array();
-
- 								$qty = $rows['quantity'];
+ 								$qty = $fetch['quantity'];
 
  									echo "<div class='float'>";
  									echo "<center>";
