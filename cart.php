@@ -152,13 +152,17 @@ if (isset($_SESSION['cart'])){
 						$in_cart=substr($in_cart,0,-1);
 						//echo $in_cart;
 
- 						$query = $conn->query("SELECT * FROM (SELECT product.productid, product.brand,product.category,product.image,product.name,product.price,stock.quantity FROM product LEFT JOIN stock ON product.productid=stock.productid WHERE stock.quantity>0 AND product.productid IN ($rec_ids) AND product.productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
+ 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
 
  							while($fetch = $query->fetch_array())
  								{
 
  								$pid = $fetch['productid'];
- 								$qty = $fetch['quantity'];
+								
+								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
+ 								$rows = $query1->fetch_array();
+
+ 								$qty = $rows['quantity'];
 
  									echo "<div class='float'>";
  									echo "<center>";
