@@ -2,11 +2,25 @@
 
 	include('db/dbconn.php');
 
+
+
 	if (isset($_POST['pay_now']))
 	{
-  	include ("random_code.php");
+
 		//set the transaction ID as a randomly generated number from random_code.php
-		$t_id = $r_id;
+		$t_id=NULL;
+		while ($t_id==NULL)
+		{
+			include ("random_code.php");
+			$result=$conn->query("SELECT * FROM transaction WHERE transactionid='$r_id'") or die (mysqli_error());
+			$matches = $result->num_rows;
+
+			if ($matches == 0 )//randomly generated ID is not yet used
+			{
+				$t_id = $r_id;//set transaction ID to the random number
+			}
+		}
+
 		$cid = $_SESSION['id'];//customer ID
 		$total = $_POST['total'];//total cost
 
