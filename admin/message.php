@@ -25,7 +25,7 @@
 				</tr>
 				</thead>
 				<?php
-					$query = $conn->query("SELECT * FROM `feedback`") or die(mysqli_error());
+					$query = $conn->query("SELECT * FROM `feedback` ORDER BY feedback_id DESC") or die(mysqli_error());
 					while($fetch = $query->fetch_array())
 						{
 				?>
