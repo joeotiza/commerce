@@ -155,16 +155,18 @@ if (isset($_SESSION['cart'])){
  						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
 
  							while($fetch = $query->fetch_array())
- 								{
+ 							{
 
  								$pid = $fetch['productid'];
-								
+
 								$query1 = $conn->query("SELECT * FROM stock WHERE productid = '$pid'") or die (mysqli_error());
  								$rows = $query1->fetch_array();
 
- 								$qty = $rows['quantity'];
+ 								$qty = (int)$rows['quantity'];
 
- 									echo "<div class='float'>";
+								if ($qty > 0)
+								{
+									echo "<div class='float'>";
  									echo "<center>";
  									echo "<a href='details.php?id=".$fetch['productid']."'><img class='img-polaroid' src='photo/".$fetch['image']."' height = '300px' width = '300px'></a>";
  									echo "".$fetch['name']."";
@@ -174,10 +176,9 @@ if (isset($_SESSION['cart'])){
  									echo "<h3 class='text-info' style='position:absolute; margin-top:-90px; text-indent:15px;'> ".$fetch['brand']."</h3>";
  									echo "</center>";
  									echo "</div>";
-
-
- 								}
-							}
+								}
+ 							}
+						}
  					?>
  				</div>
 
