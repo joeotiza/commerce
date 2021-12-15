@@ -35,7 +35,7 @@
 		<center>
 			<form method="post">
 				<center>
-					<table>
+					<table class="accountdetails">
 								<tr>
 									<td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
 								</tr>

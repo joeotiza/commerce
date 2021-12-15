@@ -39,7 +39,7 @@
 						<center>
 					<form method="post">
 						<center>
-							<table>
+							<table class="accountdetails">
 								<tr>
 									<td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
 								</tr>
@@ -71,9 +71,11 @@
 	<?php
 
 									$id = (int) $_SESSION['id'];
+									$towns=array("Nairobi","Mombasa","Kisumu","Nakuru","Eldoret");
 
 									$query = $conn->query ("SELECT * FROM customer  WHERE customerid = '$id' ") or die (mysql_error());
 									$fetch = $query->fetch_array ();
+									if (($query -> num_rows) > 0)
 									{
 										$firstname=$fetch['firstname'];
 										$lastname=$fetch['lastname'];
@@ -81,6 +83,8 @@
 										$mobile=$fetch['mobile'];
 										$email=$fetch['email'];
 										$customerid=$fetch['customerid'];
+										array_unshift($towns,$town);
+										$towns=array_unique($towns);
 									}
 							?>
 					<div id="account">
@@ -89,13 +93,20 @@
 							<h3>Edit My Account...</h3>
 								<table>
 									<tr>
-										<td>Firstname:</td><td><input type="text" name="firstname" placeholder="Firstname" required value="<?php echo $firstname; ?>"></td>
+										<td>First Name:</td><td><input type="text" name="firstname" placeholder="Firstname" required value="<?php echo $firstname; ?>"></td>
 									</tr>
 									<tr>
-										<td>Lastname:</td><td><input type="text" name="lastname" placeholder="Lastname" required value="<?php  echo $lastname;?>"></td>
+										<td>Last Name:</td><td><input type="text" name="lastname" placeholder="Lastname" required value="<?php  echo $lastname;?>"></td>
 									</tr>
 									<tr>
-										<td>Town:</td><td><input type="text" name="town" placeholder="Town" required value="<?php echo $town;?>"></td>
+										<td>Town:</td><td><select name="town" required>
+											<?php
+												foreach($towns as $option)
+												{
+													echo "<option>".$option."</option>";
+												}
+											 ?>
+											</select></td>
 									</tr>
 
 									<tr>
