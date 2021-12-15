@@ -11,6 +11,7 @@
   <script src="../js/button.js"></script>
   <script src="../js/modal.js"></script>
   <script src="../js/transition.js"></script>
+  <script src="https://kit.fontawesome.com/981b9a1d0f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

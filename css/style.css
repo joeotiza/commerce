@@ -1,3 +1,8 @@
+body{
+	background-image: url("../img/background.jpg");
+	background-attachment: fixed;
+}
+
 #header
 {
 	height:60px;
@@ -165,6 +170,7 @@
 		box-shadow:0px 0px 20px 0px black;
 		border-top:1px solid black;
 	}
+
 .foot
 	{
 		font-size:20px;
