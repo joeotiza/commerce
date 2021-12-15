@@ -313,3 +313,11 @@
 		{
 			color:#111;
 		}
+
+.accountdetails tr td{
+	font-size: 22px;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+	color:blue;
+}
