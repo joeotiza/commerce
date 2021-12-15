@@ -50,7 +50,7 @@
 <div class="">
     <form action="function/confirm.php" method="post" >
 			<?php
-    echo "<input type='image' src='img/confirm.jpg' height='100px' border='0' name='submit' alt='Confirm'>";
+    echo "<input type='image' src='img/confirm.png' height='100px' border='0' name='submit' alt='Confirm'>";
 		 ?>
 		</form>
 </div>

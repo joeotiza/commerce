@@ -7,7 +7,7 @@
 
 <?php require_once('template/header.php'); ?>
 
-	<form method="post" class="well" style="background-color:#fff;">
+	<form method="post" class="well">
 		<table class="table">
 		<label style="font-size:25px;">My Cart</label>
 			<tr>
@@ -202,8 +202,6 @@ if (isset($_SESSION['cart'])){
 				</div>
 			</div>
 		</div>
-
-			<?php require_once('template/footer.php'); ?>
 
 		</body>
 		</html>

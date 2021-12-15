@@ -8,7 +8,7 @@
 <?php require_once('template/header.php'); ?>
 
 
-		<img src="img/Feedback.jpg" style="width:1150px; height:250px; ">
+		<img src="img/Feedback.png" style="width:750px; height:200px; display: block; margin: auto;">
 	<br />
 	<br />
 

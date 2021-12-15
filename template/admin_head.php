@@ -58,6 +58,7 @@
       // Build the chart
       $('#container').highcharts({
           chart: {
+              backgroundColor: null,
               plotBackgroundColor: null,
               plotBorderWidth: null,
               plotShadow: false
