@@ -41,5 +41,13 @@
     </form>
   </div>
 
+  <?php require_once('../template/footer.php'); ?>
+
+  <!--Put the footer at the bottom of the window-->
+  <script>
+  	document.getElementById("footer").style.position = "absolute";
+  	document.getElementById("footer").style.bottom = "0";
+  </script>
+
 </body>
 </html>
