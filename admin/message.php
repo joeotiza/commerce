@@ -30,7 +30,7 @@
 						{
 				?>
 				<tr>
-					<td><?= $fetch['email'];?></td>
+					<td><?= "<a href='mailto:".$fetch['email']."'>". $fetch['email']."</a>"?></td>
 					<td><?= $fetch['message']?></td>
 				</tr>
 				<?php

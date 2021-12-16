@@ -188,30 +188,3 @@
 
 		</body>
 	</html>
-
-					<script type="text/javascript">
-						$(document).ready( function() {
-
-							$('.remove').click( function() {
-
-							var id = $(this).attr("id");
-
-
-							if(confirm("Are you sure you want to delete this product?")){
-
-
-								$.ajax({
-								type: "POST",
-								url: "../function/remove.php",
-								data: ({id: id}),
-								cache: false,
-								success: function(html){
-								$(".del"+id).fadeOut(2000, function(){ $(this).remove();});
-								}
-								});
-								}else{
-								return false;}
-							});
-						});
-
-					</script>

@@ -77,7 +77,7 @@
 				$fetch = $query->fetch_array();
 
 				$amnt = $fetch['amount'];
-				echo "Date : ". $fetch['date']."";
+				echo "Date : ". date("jS M Y", strtotime($fetch['date']))."";
 
 				$query2 = $conn->query("SELECT * FROM transactiondetail LEFT JOIN product ON product.productid = transactiondetail.productid WHERE transactiondetail.transactionid = '$t_id'") or die (mysqli_error());
 				while($row = $query2->fetch_array()){

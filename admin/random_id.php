@@ -1,6 +1,6 @@
 <?php
-/* Confirmation Code */
-function createRandomPassword() {
+/* Generate productID for new product to add */
+function createRandomNumber() {
     $chars = "01234567899876543210";
     srand((double)microtime()*1000000);
     $i = 0;
@@ -14,6 +14,6 @@ function createRandomPassword() {
     return $pass;
 						}
 
-/*values*/
-$code = createRandomPassword();
+/*ProductID Code for adding a new product*/
+$code = createRandomNumber();
 ?>

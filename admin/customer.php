@@ -32,10 +32,10 @@
 						{
 				?>
 				<tr>
-					<td><?php echo $fetch['firstname'];?>&nbsp;<?php echo  $fetch['lastname'];?></td>
-					<td><?php echo $fetch['town']?></td>
-					<td><?php echo $fetch['mobile']?></td>
-					<td><?php echo $fetch['email']?></td>
+					<td><?= $fetch['firstname'];?>&nbsp;<?php echo  $fetch['lastname'];?></td>
+					<td><?= $fetch['town']?></td>
+					<td><?= "<a href='tel:".$fetch['mobile']."'>". $fetch['mobile']."</a>"?></td>
+					<td><?= "<a href='mailto:".$fetch['email']."'>". $fetch['email']."</a>"?></td>
 				</tr>
 				<?php
 					}
