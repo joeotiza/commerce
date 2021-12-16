@@ -1,4 +1,5 @@
 <!--content to appear at the bottom of the customer pages-->
+</div>
 <div id="footer">
 		<div class="foot">
 			<label style="font-size:17px;"> Copyright &copy; </label>

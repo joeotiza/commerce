@@ -2,6 +2,7 @@
 
 <?php require_once('customer_head.php'); ?>
 <body>
+	<div class="content-wrap">
 	<div id="header">
 		<img src="img/logo.png">
 		<label>EasyBuy</label>
