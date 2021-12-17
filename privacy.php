@@ -4,7 +4,8 @@
 ?>
 <!DOCTYPE html>
 <html>
-<?php require_once('template/header.php'); ?>
+<?php require_once('template/header.php');
+$conn->close(); ?>
 
 	<br />
 	<br />

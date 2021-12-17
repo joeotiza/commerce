@@ -25,7 +25,10 @@
 
 <br>
 
-<?php require_once('template/footer.php'); ?>
+<?php
+	require_once('template/footer.php');
+	$conn->close();
+?>
 
 </body>
 </html>

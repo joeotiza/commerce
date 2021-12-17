@@ -46,17 +46,69 @@
 	<h4>TOTAL: Ksh.<?php echo number_format($amnt); ?></h4>
 	</form>
 
-	<div class='pull-right'>
+
+	<a href=#purchase data-toggle="modal" class='btn btn-inverse btn-lg'>Change Mode of Payment</a>
+	<div style="display: flex; align-items: center;">
+	<?php
+		if (isset($_POST['PayPal']))
+		{
+			$payBy='PayPal';
+			$payimg="<img src='img/paypal.png' style='width:120px;' border='0' alt='Make payments with PayPal - it's fast, free and secure!'>";
+		}
+		elseif (isset($_POST['card']))
+		{
+			$payBy='Credit/Debit card';
+			$payimg="<img src='img/credit.png' style='width:150px;' border='0' alt='Use a VISA or Mastercard debit/credit card.'>";
+		}
+		elseif (isset($_POST['mpesa']))
+		{
+			$payBy='Lipa na M-Pesa';
+			$payimg="<img src='img/mpesa.png' style='width:120px;' border='0' alt='Lipa na M-Pesa.'>";
+		}
+		else
+		{
+			$payBy='Cash';
+			$payimg="<img src='img/cash.png' style='width:120px;' border='0' alt='Pay with cash.'>";
+		}
+	echo "<h4>Paying via ".$payBy.".</h4>&emsp;".$payimg;
+	?>
+
+
+	<div class='pull-right' style="margin-left:auto;">
 <div class="">
     <form action="function/confirm.php" method="post" >
-			<?php
-    echo "<input type='image' src='img/confirm.png' height='100px' border='0' name='submit' alt='Confirm'>";
-		 ?>
+			<button name='submit' style='border: none; background-color: transparent;'><img src='img/confirm.png' style='height:80px;' border='0' alt='Confirm'></button>
 		</form>
 </div>
+</div>
+
+
+<div id="purchase" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:400px;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="myModalLabel">Mode Of Payment</h3>
+	</div>
+		<div class="modal-body">
+			<form method="post">
+			<center>
+				<button name="mpesa" style="border: none; background-color: transparent;"><img src="img/mpesa.png" style="width:120px;" border="0" alt="Lipa na M-Pesa."></button><br>
+				<button name="card" style="border: none; background-color: transparent;"><img src="img/credit.png" style="width:120px;" border="0" alt="Use a VISA or Mastercard debit/credit card.">&nbsp;<b>Credit/Debit Card</b></button><br>
+				<button name="PayPal" style="border: none; background-color: transparent;"><img src="img/paypal.png" style="width:120px;" border="0" alt="Make payments with PayPal - it's fast, free and secure!"></button><br>
+				<button name='cash' style="border: none; background-color: transparent;"><img src="img/cash.png" style="width:120px;" border="0" alt="Pay with cash.">&nbsp;<b>Cash</b></button><br>
+			</center>
+		</div>
+	<div class="modal-footer">
+		<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+			</form>
 	</div>
 </div>
 
-	<?php require_once('template/footer.php'); ?>
+
+
+	</div>
+</div>
+
+	<?php require_once('template/footer.php');
+	$conn->close(); ?>
 </body>
 </html>

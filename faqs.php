@@ -4,7 +4,9 @@
 ?>
 <!DOCTYPE html>
 <html>
-<?php require_once('template/header.php'); ?>
+<?php require_once('template/header.php');
+$conn->close();
+ ?>
 
 	<div id="content">
 	<legend>Frequently Asked Questions</legend>

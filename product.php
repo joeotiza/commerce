@@ -52,6 +52,7 @@
 									echo "</center>";
 									echo "</div>";
 								}
+								$conn->close();
 					?>
 
 					</form>

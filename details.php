@@ -12,6 +12,7 @@
 			$id = $_GET['id'];
 			$query = $conn->query("SELECT * FROM product WHERE productid = '$id' ");
 			$row = $query->fetch_array();
+			$conn->close();
 		?>
 				<div>
 					<center>

@@ -8,7 +8,7 @@
 <?php require_once('template/header.php'); ?>
 
 
-		<img src="img/Feedback.png" style="width:750px; height:200px; display: block; margin: auto;">
+		<img src="img/Feedback.png" style="width:750px; display: block; margin: auto;">
 	<br />
 	<br />
 
@@ -37,6 +37,7 @@
 
 				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email','$message')") ;
 			}
+			$conn->close();
 		?>
 
 	<br />

@@ -125,11 +125,11 @@
 
  					<?php
 					if (isset($_SESSION['cart'])){
-						$title='You may also like...';}
+						$title="<div id='product' style='position:relative;''>
+								 <center><h2><legend>You may also like...</legend></h2></center>
+								 <br />";}
 						else {$title='';}
-					echo "<div id='product' style='position:relative;''>
-							 <center><h2><legend>".$title."</legend></h2></center>
-							 <br />";
+					echo $title;
 						include("kmean_cluster.php");
 						//print_r($KMeans_output);
 if (isset($_SESSION['cart'])){
@@ -179,28 +179,10 @@ if (isset($_SESSION['cart'])){
 								}
  							}
 						}
+						$conn->close();
  					?>
  				</div>
 
-			<div id="purchase" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:400px;">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-					<h3 id="myModalLabel">Mode Of Payment</h3>
-				</div>
-					<div class="modal-body">
-						<form method="post">
-						<center>
-							<input type="image" src="images/button.jpg" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"  />
-							<br/>
-							<br/>
-							<button class="btn btn-lg" >Cash</button>
-						</center>
-					</div>
-				<div class="modal-footer">
-					<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
-						</form>
-				</div>
-			</div>
 		</div>
 
 		</body>

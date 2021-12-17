@@ -87,17 +87,25 @@
               name: 'Share',
               data: [
   				<?php
+          $mydata=array();
   				$result = $conn->query("SELECT brand FROM product LEFT JOIN transactiondetail ON product.productid=transactiondetail.productid LEFT JOIN transaction ON transactiondetail.transactionid=transaction.transactionid WHERE transaction.status='Confirmed' Group by brand");
   				while($row = $result->fetch_array()){
 
   				$brnd = $row['brand'];
 
   				$result1 = $conn->query("SELECT * FROM product LEFT JOIN transactiondetail ON product.productid = transactiondetail.productid LEFT JOIN transaction ON transactiondetail.transactionid=transaction.transactionid WHERE transaction.status='Confirmed' AND brand = '$brnd'");
-  				$row1 = $result1->num_rows;
-
-  				echo "['".$brnd."',   ".$row1."],";
-
+  				//$row1 = $result1->num_rows;
+          $row1=0;//count the number of items of each brand sold
+          while($count = $result1->fetch_array()){
+            $row1+=(int)$count['quantity'];
+          }
+          $mydata[$brnd]=$row1;
+          arsort($mydata);//sort the quantity of each brand in descending order
   				}
+
+          foreach($mydata as $x => $x_value) {
+            echo "['" . $x . "', " . $x_value."],";
+          }
   				?>
 
               ]

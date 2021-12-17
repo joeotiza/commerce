@@ -13,6 +13,9 @@ mycursor=conn.cursor()
 
 mycursor.execute("SELECT * FROM transactionitems")
 
+#disconnect from server as we are running no more MySQL queries
+conn.close()
+
 ##for i in mycursor:
     ##print(i)
 

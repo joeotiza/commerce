@@ -106,6 +106,7 @@ if (isset($_SESSION['cart'])){
 
 								}
 							}
+							$conn->close();
 					?>
 				</div>
 

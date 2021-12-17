@@ -85,15 +85,10 @@
 			</div>
 	</div>
 
-	<!--br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br-->
 
-
-<?php require_once('template/footer.php'); ?>
+<?php
+require_once('template/footer.php');
+ ?>
 
 <!--Put the footer at the bottom of the window-->
 <script>

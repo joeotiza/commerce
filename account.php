@@ -86,6 +86,7 @@
 										array_unshift($towns,$town);
 										$towns=array_unique($towns);
 									}
+									$conn->close();
 							?>
 					<div id="account">
 						<form method="POST" action="function/edit_customer.php">
