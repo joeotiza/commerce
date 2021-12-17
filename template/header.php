@@ -41,7 +41,7 @@
 									<td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
 								</tr>
 								<tr>
-									<td class="profile">Town:</td><td class="profile"><?php echo $fetch['town'];?></td>
+									<td class="profile">Address:</td><td class="profile"><?php echo $fetch['address'];?></td>
 								</tr>
 								<tr>
 									<td class="profile">Mobile Number:&nbsp;</td><td class="profile"><?php echo $fetch['mobile'];?></td>

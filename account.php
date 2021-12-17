@@ -44,7 +44,7 @@
 									<td class="profile">Name:</td><td class="profile"><?php echo $fetch['firstname'];?>&nbsp;<?php echo $fetch['lastname'];?></td>
 								</tr>
 								<tr>
-									<td class="profile">Town:</td><td class="profile"><?php echo $fetch['town'];?></td>
+									<td class="profile">Address:</td><td class="profile"><?php echo $fetch['address'];?></td>
 								</tr>
 								<tr>
 									<td class="profile">Mobile Number:</td><td class="profile"><?php echo $fetch['mobile'];?></td>
@@ -71,7 +71,7 @@
 	<?php
 
 									$id = (int) $_SESSION['id'];
-									$towns=array("Nairobi","Mombasa","Kisumu","Nakuru","Eldoret");
+									$towns=array("Buru buru","Dagoretti","Eastleigh","Githurai","Jogoo Road","Karen","Kasarani","Langata","Lavington","Madaraka","Mathare","Mombasa Road","Nairobi Central","Nairobi West","Ngara","Parklands","South C","Thika Road","Waiyaki Way", "Westlands","Ngong");
 
 									$query = $conn->query ("SELECT * FROM customer  WHERE customerid = '$id' ") or die (mysql_error());
 									$fetch = $query->fetch_array ();
@@ -79,7 +79,7 @@
 									{
 										$firstname=$fetch['firstname'];
 										$lastname=$fetch['lastname'];
-										$town=$fetch['town'];
+										$town=$fetch['address'];
 										$mobile=$fetch['mobile'];
 										$email=$fetch['email'];
 										$customerid=$fetch['customerid'];
@@ -100,7 +100,7 @@
 										<td>Last Name:</td><td><input type="text" name="lastname" placeholder="Lastname" required value="<?php  echo $lastname;?>"></td>
 									</tr>
 									<tr>
-										<td>Town:</td><td><select name="town" required>
+										<td>Address:</td><td><select name="town" required>
 											<?php
 												foreach($towns as $option)
 												{
