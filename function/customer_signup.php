@@ -15,7 +15,7 @@
 
 		if($check == 1)
 		{
-			echo "<script>alert('EMAIL ALREADY EXIST')</script>";
+			echo "<script>alert('Email already exists. Sign up with a different Email.')</script>";
 		}
 
 		else
@@ -30,4 +30,5 @@
 		}
 
 	}
+	$conn->close();
 ?>

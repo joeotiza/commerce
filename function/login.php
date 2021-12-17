@@ -27,4 +27,6 @@ if (isset($_POST['login']))
 		}
 }
 
+$conn->close();
+
 ?>

@@ -16,14 +16,15 @@
 									<div style='width:975px;' class="alert alert-info">
 										  <table class="table table-hover">
 											<thead>
+												<th>Transaction No.</th>
 												<th>Brand</th>
 												<th>Product</th>
-												<th>Transaction No.</th>
+												<th>Quantity</th>
 												<th>AMOUNT</th>
 											</thead>
 											  <tbody>
 												<?php
-												$Q1 = $conn->query("SELECT * FROM product LEFT JOIN transactiondetail ON product.productid = transactiondetail.productid LEFT JOIN transaction ON transactiondetail.transactionid=transaction.transactionid WHERE transaction.status='Confirmed'");
+												$Q1 = $conn->query("SELECT * FROM product LEFT JOIN transactiondetail ON product.productid = transactiondetail.productid LEFT JOIN transaction ON transactiondetail.transactionid=transaction.transactionid WHERE transaction.status='Confirmed' ORDER BY brand, product.name");
 												while($r1 = $Q1->fetch_array()){
 
 												$tid = $r1['transactionid'];
@@ -31,17 +32,18 @@
 
 
 												$pid = $r1['productid'];
-												$o_qty = $r1['quantity'];
+												$o_qty = (int)$r1['quantity'];
 
 												$p_price = $r1['price'];
 												$brand=$r1['brand'];
 												$name = $r1['name'];
 
 												echo "<tr>";
+												echo "<td>".$tid."</td>";
 												echo "<td>".$brand."</td>";
 												echo "<td>".$name."</td>";
-												echo "<td>".$tid."</td>";
-												echo "<td>".number_format($p_price)."</td>";
+												echo "<td>".$o_qty."</td>";
+												echo "<td>".number_format($p_price*$o_qty)."</td>";
 												echo "</tr>";
 												}
 
@@ -49,7 +51,7 @@
 												while($r3 = $Q3->fetch_array()){
 
 												$amnt = $r3['sum(amount)'];
-												echo "<tr><td></td><td></td><td>TOTAL : </td> <td><b>Ksh.".number_format($amnt)."</b></td></tr>";
+												echo "<tr><td></td><td></td><td></td><td>TOTAL : </td> <td><b>Ksh.".number_format($amnt)."</b></td></tr>";
 												}
 												?>
 											  </tbody>

@@ -2,7 +2,18 @@
 
 	include('db/dbconn.php');
 
-
+	$payBy="";
+	if (isset($_POST['purchase']))
+	{
+		if (isset($_POST['Paypal']))
+		{
+			$payBy='PayPal';
+		}
+		elseif (isset($_POST['cash']))
+		{
+			$payBy='Cash';
+		}
+	}
 
 	if (isset($_POST['pay_now']))
 	{
@@ -48,4 +59,5 @@
 		echo "<script>window.location = 'summary.php?tid= +".$t_id."'</script>";
 	//header ("Location: summary.php?tid=$t_id");
 	}
+
 ?>

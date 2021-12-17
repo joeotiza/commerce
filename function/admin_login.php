@@ -26,7 +26,6 @@ if (isset($_POST['enter']))
 							echo "<script>alert('Invalid Email or Password'); window.location.href='admin_home.php';</script>";
 						}
 
-
 	}
-
+$conn->close();
 ?>

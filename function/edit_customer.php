@@ -23,6 +23,6 @@
 							or die (mysqli_error());
 
 					header("location:../home.php");
-			}
-
+		}
+		$conn->close();
 	?>
