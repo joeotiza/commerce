@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2021 at 03:07 PM
+-- Generation Time: Dec 17, 2021 at 03:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -50,7 +50,7 @@ CREATE TABLE `customer` (
   `customerid` int(11) NOT NULL,
   `firstname` varchar(26) NOT NULL,
   `lastname` varchar(26) NOT NULL,
-  `town` varchar(26) NOT NULL,
+  `address` varchar(26) NOT NULL,
   `mobile` varchar(15) DEFAULT NULL,
   `email` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -59,15 +59,17 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerid`, `firstname`, `lastname`, `town`, `mobile`, `email`) VALUES
-(1, 'Hashirama', 'Senju', 'Nairobi', '0712345678', 'konoha@gmail.com'),
-(2, 'Madara', 'Uchiha', 'Mombasa', '0722888111', 'tsukuyomi@gmail.com'),
-(3, 'Derrick', 'Kibuyu', 'Mombasa', '0712345345', 'derrick@gmail.com'),
-(4, 'Joshua', 'Maina', 'Nairobi', '0722111222', 'maina@gmail.com'),
-(5, 'Eric', 'Nyanjom', 'Eldoret', '0788286444', 'nyanjom@yahoo.com'),
-(6, 'Andrew', 'Adallah', 'Kisumu', '0766952032', 'adallah@gmail.com'),
-(7, 'Minato', 'Namikaze', 'Nakuru', '0715875003', 'minato@gmail.com'),
-(8, 'Barrack', 'Obama', 'Kisumu', '0715404404', 'obama@yahoo.com');
+INSERT INTO `customer` (`customerid`, `firstname`, `lastname`, `address`, `mobile`, `email`) VALUES
+(1, 'Hashirama', 'Senju', 'Parklands', '0712345678', 'konoha@gmail.com'),
+(2, 'Madara', 'Uchiha', 'Karen', '0722888111', 'tsukuyomi@gmail.com'),
+(3, 'Derrick', 'Kibuyu', 'Westlands', '0712345345', 'derrick@gmail.com'),
+(4, 'Joshua', 'Maina', 'Ngara', '0722111222', 'maina@gmail.com'),
+(5, 'Eric', 'Nyanjom', 'Madaraka', '0788286444', 'nyanjom@yahoo.com'),
+(6, 'Andrew', 'Adallah', 'Dagoretti', '0766952032', 'adallah@gmail.com'),
+(7, 'Minato', 'Namikaze', 'Mombasa Road', '0715875003', 'minato@gmail.com'),
+(8, 'Barrack', 'Obama', 'Parklands', '0715404404', 'obama@yahoo.com'),
+(9, 'Joan', 'Linda', 'Thika Road', '0776942007', 'joan@yahoo.com'),
+(10, 'Sharon', 'Neema', 'Langata', '0799673873', 'shalkido@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,9 @@ INSERT INTO `customerpassword` (`customerid`, `password`) VALUES
 (5, '63e1687bf4865de6d8f8bdba5fc35d1e8a58c5dd'),
 (6, '03a6a9ceaca678fd81b70ab8f65dfc819e2bd654'),
 (7, 'cf1c436c1b309c86c32cf16a186c52ddb33b49bd'),
-(8, 'b21e8f02ba90b5876780bcf1bf968440902c31b1');
+(8, 'b21e8f02ba90b5876780bcf1bf968440902c31b1'),
+(9, 'da39a3ee5e6b4b0d3255bfef95601890afd80709'),
+(10, 'f6cefd7312dc6d417ee300bfd3894d247710a67a');
 
 -- --------------------------------------------------------
 
@@ -695,7 +699,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `feedback`

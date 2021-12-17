@@ -21,7 +21,7 @@
 				<thead>
 				<tr style="font-size:20px;">
 					<th>Name</th>
-					<th>Town</th>
+					<th>Address</th>
 					<th>Mobile</th>
 					<th>Email</th>
 				</tr>
@@ -33,7 +33,7 @@
 				?>
 				<tr>
 					<td><?= $fetch['firstname'];?>&nbsp;<?php echo  $fetch['lastname'];?></td>
-					<td><?= $fetch['town']?></td>
+					<td><?= $fetch['address']?></td>
 					<td><?= "<a href='tel:".$fetch['mobile']."'>". $fetch['mobile']."</a>"?></td>
 					<td><?= "<a href='mailto:".$fetch['email']."'>". $fetch['email']."</a>"?></td>
 				</tr>
