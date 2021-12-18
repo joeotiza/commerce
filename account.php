@@ -79,11 +79,11 @@
 									{
 										$firstname=$fetch['firstname'];
 										$lastname=$fetch['lastname'];
-										$town=$fetch['address'];
+										$address=$fetch['address'];
 										$mobile=$fetch['mobile'];
 										$email=$fetch['email'];
 										$customerid=$fetch['customerid'];
-										array_unshift($towns,$town);
+										array_unshift($towns,$address);
 										$towns=array_unique($towns);
 									}
 									$conn->close();
@@ -100,7 +100,7 @@
 										<td>Last Name:</td><td><input type="text" name="lastname" placeholder="Lastname" required value="<?php  echo $lastname;?>"></td>
 									</tr>
 									<tr>
-										<td>Address:</td><td><select name="town" required>
+										<td>Address:</td><td><select name="address" required>
 											<?php
 												foreach($towns as $option)
 												{

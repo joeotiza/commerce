@@ -64,7 +64,7 @@
               plotShadow: false
           },
           title: {
-              text: 'Products share of Brands as of year <?php echo $date = date("Y"); ?>'
+              text: 'Products Share of Brands as of the year <?= $date = date("Y") ?>'
           },
           tooltip: {
               pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
