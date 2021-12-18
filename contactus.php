@@ -16,7 +16,7 @@
 			<form method="post">
 				<table style="position:relative; left:25%;">
 					<tr>
-						<td style="font-size:20px;">Email:</td><td><input type="email" name="email" value="<?php echo $fetch['email']; ?>" style="width:400px;"></td>
+						<td style="font-size:20px;">Email:</td><td><input type="email" name='email' value="<?= $fetch['email']; ?>" style="width:400px;"></td>
 					</tr>
 					<tr>
 						<td style="font-size:20px;">Message:</td><td><textarea name="message" style="width:400px; height:300px;" required></textarea></td>
@@ -29,13 +29,12 @@
 		</div>
 		<?php
 
-
-			if(isset($POST['send']));
+			if(isset($_POST['send']))
 			{
-				@$email = $_POST['email'];
-				@$message = $_POST['message'];
+				$email = $_POST['email'];
+				$message = $_POST["message"];
 
-				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email','$message')") ;
+				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email', '$message')") or die(mysqli_error());
 			}
 			$conn->close();
 		?>
