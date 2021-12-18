@@ -48,7 +48,7 @@
 					<input type="text" name="lastname" placeholder="Last Name" required>
 					<select name="address" required><option value="" disabled selected hidden>Address</option>
 						<?php
-						$towns=array("Buru buru","Dagoretti","Eastleigh","Githurai","Jogoo Road","Karen","Kasarani","Langata","Lavington","Madaraka","Mathare","Mombasa Road","Nairobi Central","Nairobi West","Ngara","Parklands","South C","Thika Road","Waiyaki Way", "Westlands","Ngong");
+						$towns=array("Buru buru","Dagoretti","Eastleigh","Githurai","Jogoo Road","Karen","Kasarani","Langata","Lavington","Madaraka","Mathare","Mombasa Road","Nairobi Central","Nairobi West","Ngara","Ngong","Parklands","South C","Thika Road","Waiyaki Way", "Westlands");
 						foreach($towns as $option)
 						{
 							echo "<option>".$option."</option>";

@@ -71,7 +71,7 @@
 	<?php
 
 									$id = (int) $_SESSION['id'];
-									$towns=array("Buru buru","Dagoretti","Eastleigh","Githurai","Jogoo Road","Karen","Kasarani","Langata","Lavington","Madaraka","Mathare","Mombasa Road","Nairobi Central","Nairobi West","Ngara","Parklands","South C","Thika Road","Waiyaki Way", "Westlands","Ngong");
+									$towns=array("Buru buru","Dagoretti","Eastleigh","Githurai","Jogoo Road","Karen","Kasarani","Langata","Lavington","Madaraka","Mathare","Mombasa Road","Nairobi Central","Nairobi West","Ngara","Ngong","Parklands","South C","Thika Road","Waiyaki Way", "Westlands");
 
 									$query = $conn->query ("SELECT * FROM customer  WHERE customerid = '$id' ") or die (mysql_error());
 									$fetch = $query->fetch_array ();
