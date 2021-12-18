@@ -184,6 +184,7 @@
 					  echo "<script>window.location = 'admin_household.php'</script>";
 					  //header("location:admin_feature.php");
 					 }
+					 $conn->close();
 					  ?>
 
 	</body>

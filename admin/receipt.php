@@ -94,6 +94,7 @@
 				echo "<td>".number_format($pprice)."</td>";
 				echo "</tr>";
 				}
+				$conn->close();
 				?>
 
 			</table>

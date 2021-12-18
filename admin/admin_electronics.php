@@ -120,10 +120,10 @@
 											{
 											$id = $fetch['productid'];
 									?>
-									<tr class="del<?php echo $id?>">
-										<td><img class="img-polaroid" src = "../photo/<?php echo $fetch['image']?>" height = "70px" width = "80px"></td>
-										<td><?php echo $fetch['name']?></td>
-										<td>Ksh.<?php echo number_format($fetch['price'])?></td>
+									<tr class="del<?= $id?>">
+										<td><img class="img-polaroid" src = "../photo/<?= $fetch['image']?>" height = "70px" width = "80px"></td>
+										<td><?= $fetch['name']?></td>
+										<td>Ksh.<?= number_format($fetch['price'])?></td>
 
 										<?php
 										$query1 = $conn->query("SELECT * FROM `stock` WHERE productid='$id'") or die(mysqli_error());
@@ -132,7 +132,7 @@
 											$quantity = $fetch1['quantity'];
 										?>
 
-										<td><?php echo $fetch1['quantity']?></td>
+										<td><?= $fetch1['quantity']?></td>
 										<td>
 										<?php
 										echo "<a href='stockin.php?id=".$id."' class='btn btn-success' rel='facebox'><i class='fas fa-plus-circle'></i> Stock In</a> ";
@@ -184,6 +184,7 @@
 					  echo "<script>window.location = 'admin_electronics.php'</script>";
 					  //header("location:admin_feature.php");
 					 }
+					 $conn->close();
 					  ?>
 
 		</body>

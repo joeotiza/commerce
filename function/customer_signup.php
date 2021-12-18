@@ -6,7 +6,7 @@
 	{
 		$firstname=$_POST['firstname'];
 		$lastname=$_POST['lastname'];
-		$town=$_POST['town'];
+		$address=$_POST['address'];
 		$mobile=$_POST['mobile'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
@@ -20,8 +20,8 @@
 
 		else
 		{
-			$conn->query ("INSERT INTO customer (firstname, lastname, town, mobile, email)
-					VALUES ('$firstname', '$lastname', '$town', '$mobile', '$email')")
+			$conn->query ("INSERT INTO customer (firstname, lastname, address, mobile, email)
+					VALUES ('$firstname', '$lastname', '$address', '$mobile', '$email')")
 					or die(mysqli_error());
 
 			$conn->query ("INSERT INTO customerpassword (customerid, password)

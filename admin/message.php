@@ -35,6 +35,7 @@
 				</tr>
 				<?php
 					}
+					$conn->close();
 				?>
 			</table>
 		</div>

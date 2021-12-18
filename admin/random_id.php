@@ -1,4 +1,5 @@
 <?php
+
 /* Generate productID for new product to add */
 function createRandomNumber() {
     $chars = "01234567899876543210";
@@ -15,5 +16,16 @@ function createRandomNumber() {
 						}
 
 /*ProductID Code for adding a new product*/
-$code = createRandomNumber();
+$code=NULL;
+while ($code==NULL)
+{
+  $trial=createRandomNumber();
+  $result=$conn->query("SELECT * FROM product WHERE productid='$trial'") or die (mysqli_error());
+  $matches = $result->num_rows;
+
+  if ($matches == 0 )//randomly generated ID is not yet used
+  {
+    $code = $trial;//set product ID to the random number
+  }
+}
 ?>

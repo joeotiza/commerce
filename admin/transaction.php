@@ -61,6 +61,7 @@
           				</tr>
           				<?php
           					}
+										$conn->close();
           				?>
           				</tbody>
           			</table>

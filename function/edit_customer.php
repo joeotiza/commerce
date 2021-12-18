@@ -9,12 +9,12 @@
 
 				$firstname=$_POST['firstname'];
 				$lastname=$_POST['lastname'];
-				$town=$_POST['town'];
+				$address=$_POST['address'];
 				$mobile=$_POST['mobile'];
 				$email=$_POST['email'];
 				$password=$_POST['password'];
 
-				$conn->query("UPDATE customer SET firstname='$firstname', lastname='$lastname', town='$town',
+				$conn->query("UPDATE customer SET firstname='$firstname', lastname='$lastname', address='$address',
 							mobile='$mobile', email='$email'
 							WHERE customerid='$id';")
 							or die (mysqli_error());

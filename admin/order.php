@@ -53,6 +53,7 @@
 												$amnt = $r3['sum(amount)'];
 												echo "<tr><td></td><td></td><td></td><td>TOTAL : </td> <td><b>Ksh.".number_format($amnt)."</b></td></tr>";
 												}
+												$conn->close();
 												?>
 											  </tbody>
 										    </table>

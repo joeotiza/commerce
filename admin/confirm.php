@@ -20,6 +20,7 @@ while($row = $query2->fetch_array())
 
   $query = $conn->query("UPDATE stock SET quantity = '$stck_out' WHERE productid = '$pid'") or die(mysqli_error());
 }
+$conn->close();
 
 header("location: transaction.php");
 
