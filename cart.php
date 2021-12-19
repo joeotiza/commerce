@@ -115,8 +115,10 @@
 
 		<div class='pull-right'>
 		<a href='home.php' class='btn btn-inverse btn-lg'>Continue Shopping</a>
-		<?php echo "<button name='pay_now' type='submit' class='btn btn-inverse btn-lg' >Purchase</button>";
-		include ("function/pay.php");
+		<?php
+		if (isset($_SESSION['cart'])){
+		echo "<button name='pay_now' type='submit' class='btn btn-inverse btn-lg' >Purchase</button>";
+		include ("function/pay.php");}
 		?>
 		</form>
 		</div>
