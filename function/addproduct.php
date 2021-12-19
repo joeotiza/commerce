@@ -2,7 +2,7 @@
     $q1 = $conn->query("INSERT INTO product (name, price, image, brand, category)
     VALUES ('$name','$price','$img', '$brand', '$category')");
 
-    $q0 = $conn->query("SELECT * FROM `product` WHERE `name`='$name' AND `price`='$price'");
+    $q0 = $conn->query("SELECT * FROM `product` WHERE `name`='$name' AND `image`='$img'");
     $rq0=$q0->fetch_array();
     $productid = $rq0['productid'];
 
