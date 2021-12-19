@@ -19,3 +19,6 @@ In the command line or windows powershell, type the following commands for the k
 Developed on:  
 - PHP version 8.0.13  
 - Python version 3.9
+
+To run the customer/default module type "localhost/commerce" on the address bar  
+To run the admin module type "localhost/commerce/admin" (username:admin)(password:admin)
