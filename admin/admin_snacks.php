@@ -53,44 +53,37 @@
 			</div>
 
 			<?php
-				if (isset($_POST['add']))
-					{
-						$productid = $_POST['productid'];
-						$name = $_POST['name'];
-						$price = $_POST['price'];
-						$brand = $_POST['brand'];
-						$category = $_POST['category'];
-						$quantity = $_POST['quantity'];
-						$code = rand(0,98987787866533499);
+			  if (isset($_POST['add']))
+			    {
+			      $name = $_POST['name'];
+			      $price = $_POST['price'];
+			      $brand = $_POST['brand'];
+			      $category = $_POST['category'];
+			      $quantity = $_POST['quantity'];
+			      $code = rand(0,98987787866533499);
 
-									$name = $code.$_FILES["image"] ["name"];
-									$type = $_FILES["image"] ["type"];
-									$size = $_FILES["image"] ["size"];
-									$temp = $_FILES["image"] ["tmp_name"];
-									$error = $_FILES["image"] ["error"];
+			            $img = $code.$_FILES["image"] ["name"];
+			            $type = $_FILES["image"] ["type"];
+			            $size = $_FILES["image"] ["size"];
+			            $temp = $_FILES["image"] ["tmp_name"];
+			            $error = $_FILES["image"] ["error"];
 
-									if ($error > 0){
-										die("Error uploading file! Code $error.");}
-									else
-									{
-										if($size > 30000000000) //conditions for the file
-										{
-											die("Format is not allowed or file size is too big!");
-										}
-										else
-										{
-											move_uploaded_file($temp,"../photo/".$name);
+			            if ($error > 0){
+			              die("Error uploading file! Code $error.");}
+			            else
+			            {
+			              if($size > 30000000000) //conditions for the file
+			              {
+			                die("Format is not allowed or file size is too big!");
+			              }
+			              else
+			              {
+			                move_uploaded_file($temp,"../photo/".$img);
+				require_once('../function/addproduct.php');
 
-
-					$q1 = $conn->query("INSERT INTO product ( productid, name, price, image, brand, category)
-					VALUES ('$productid','$name','$price','$name', '$brand', '$category')");
-
-					$q2 = $conn->query("INSERT INTO stock ( productid, quantity) VALUES ('$productid','$quantity')");
-
-					header ("location:admin_snacks.php");
-				}}
-			}
-
+				header ("location:admin_snacks.php");
+			}}
+		}
 					?>
 
 					<?php require_once('../template/admin_nav.php'); ?>

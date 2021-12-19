@@ -63,7 +63,7 @@
 						$quantity = $_POST['quantity'];
 						$code = rand(0,98987787866533499);
 
-									$name = $code.$_FILES["image"] ["name"];
+									$img = $code.$_FILES["image"] ["name"];
 									$type = $_FILES["image"] ["type"];
 									$size = $_FILES["image"] ["size"];
 									$temp = $_FILES["image"] ["tmp_name"];
@@ -79,14 +79,10 @@
 										}
 										else
 										{
-											move_uploaded_file($temp,"../photo/".$name);
+											move_uploaded_file($temp,"../photo/".$img);
 
 
-					$q1 = $conn->query("INSERT INTO product ( productid, name, price, image, brand, category)
-					VALUES ('$productid','$name','$price','$name', '$brand', '$category')");
-
-					$q2 = $conn->query("INSERT INTO stock ( productid, quantity) VALUES ('$productid','$quantity')");
-
+					require_once('../function/addproduct.php');
 					header ("location:admin_electronics.php");
 				}}
 			}
