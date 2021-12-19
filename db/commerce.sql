@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2021 at 03:45 PM
+-- Generation Time: Dec 19, 2021 at 05:02 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -69,7 +69,9 @@ INSERT INTO `customer` (`customerid`, `firstname`, `lastname`, `address`, `mobil
 (7, 'Minato', 'Namikaze', 'Mombasa Road', '0715875003', 'minato@gmail.com'),
 (8, 'Barrack', 'Obama', 'Parklands', '0715404404', 'obama@yahoo.com'),
 (9, 'Joan', 'Linda', 'Thika Road', '0776942007', 'joan@yahoo.com'),
-(10, 'Sharon', 'Neema', 'Langata', '0799673873', 'shalkido@gmail.com');
+(10, 'Sharon', 'Neema', 'Karen', '0799673873', 'shalkido@gmail.com'),
+(11, 'Hinata', 'Hyuga', 'Ngara', '0741544764', 'hinata@gmail.com'),
+(12, 'Yvonne', 'Smith', 'Kasarani', '0755775563', 'yvonne@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,9 @@ INSERT INTO `customerpassword` (`customerid`, `password`) VALUES
 (7, 'cf1c436c1b309c86c32cf16a186c52ddb33b49bd'),
 (8, 'b21e8f02ba90b5876780bcf1bf968440902c31b1'),
 (9, 'da39a3ee5e6b4b0d3255bfef95601890afd80709'),
-(10, 'f6cefd7312dc6d417ee300bfd3894d247710a67a');
+(10, 'f6cefd7312dc6d417ee300bfd3894d247710a67a'),
+(11, 'f178a3bcfe745f528d2fdf1df35baa86f9e8dd3a'),
+(12, '5473f88a9985ce6824a12a6be5211f5455b484aa');
 
 -- --------------------------------------------------------
 
@@ -115,9 +119,10 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`feedback_id`, `email`, `message`) VALUES
-(4, 'konoha@gmail.com', 'I tried searching for a fridge on your site and did not get one. Please stock them.'),
-(7, 'derrick@gmail.com', 'When will you have xylophones?'),
-(35, 'konoha@gmail.com', 'Good Job guys');
+(1, 'konoha@gmail.com', 'I tried searching for a fridge on your site and did not get one. Please stock them.'),
+(2, 'derrick@gmail.com', 'When will you have xylophones?'),
+(3, 'konoha@gmail.com', 'Good Job guys'),
+(4, 'yvonne@gmail.com', 'I ordered shoes but the size delivered does not fit. Is it possible to get a refund?');
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,7 @@ CREATE TABLE `product` (
   `category` varchar(20) NOT NULL,
   `brand` varchar(20) NOT NULL,
   `price` int(10) NOT NULL,
-  `image` varchar(60) DEFAULT NULL
+  `image` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -228,7 +233,7 @@ INSERT INTO `stock` (`productid`, `quantity`) VALUES
 (17, 5),
 (18, 9),
 (19, 4),
-(20, 9),
+(20, 6),
 (21, 6),
 (22, 5),
 (23, 7),
@@ -236,12 +241,12 @@ INSERT INTO `stock` (`productid`, `quantity`) VALUES
 (25, 4),
 (26, 6),
 (27, 7),
-(28, 24),
+(28, 16),
 (29, 28),
 (30, 48),
 (31, 21),
-(32, 27),
-(33, 25),
+(32, 21),
+(33, 19),
 (34, 28),
 (35, 37),
 (36, 32),
@@ -300,6 +305,7 @@ INSERT INTO `transaction` (`transactionid`, `customerid`, `amount`, `date`, `sta
 (57, 2, 3864, '2021-12-10', 'Confirmed'),
 (60, 1, 100000, '2021-12-10', 'Confirmed'),
 (74, 5, 100460, '2021-12-10', 'Confirmed'),
+(81, 10, 1072, '2021-12-18', 'Confirmed'),
 (91, 5, 100000, '2021-12-10', 'Confirmed'),
 (106, 5, 420, '2021-12-13', 'Confirmed'),
 (119, 7, 360, '2021-12-12', 'Confirmed'),
@@ -422,6 +428,9 @@ INSERT INTO `transactiondetail` (`transactionid`, `productid`, `quantity`) VALUE
 (74, 27, 1),
 (74, 28, 5),
 (74, 36, 4),
+(81, 28, 8),
+(81, 32, 6),
+(81, 33, 6),
 (91, 23, 1),
 (91, 26, 1),
 (91, 27, 1),
@@ -596,6 +605,7 @@ INSERT INTO `transactionitems` (`transactionid`, `1`, `2`, `3`, `4`, `5`, `6`, `
 (57, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (74, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (91, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0),
@@ -699,13 +709,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -727,7 +737,7 @@ ALTER TABLE `customerpassword`
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`email`) REFERENCES `customer` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`email`) REFERENCES `customer` (`email`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `stock`
