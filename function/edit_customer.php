@@ -7,8 +7,8 @@
 		{
 				$id = $_SESSION['id'];//session ID global variable
 
-				$firstname=$_POST['firstname'];
-				$lastname=$_POST['lastname'];
+				$firstname=addslashes($_POST['firstname']);//addslashes to deal with apostrophes
+				$lastname=addslashes($_POST['lastname']);
 				$address=$_POST['address'];
 				$mobile=$_POST['mobile'];
 				$email=$_POST['email'];
