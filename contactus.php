@@ -32,7 +32,8 @@
 			if(isset($_POST['send']))
 			{
 				$email = $_POST['email'];
-				$message = $_POST["message"];
+				$message = addslashes($_POST["message"]);//addslashes to deal with apostrophes
+
 
 				$conn->query ("INSERT INTO `feedback` (email, message) VALUES ('$email', '$message')") or die(mysqli_error());
 			}
