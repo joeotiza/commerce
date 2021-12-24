@@ -1,3 +1,4 @@
+# EasyBuy
 Have XAMPP preinstalled.
 
 Start Apache and MySQL from the XAMPP control panel.
