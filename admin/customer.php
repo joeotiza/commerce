@@ -24,21 +24,32 @@
 					<th>Address</th>
 					<th>Mobile</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 				<?php
-					$query = $conn->query("SELECT * FROM `customer` ORDER BY firstname") or die(mysqli_error());
+					$query = $conn->query("SELECT * FROM `customer` WHERE customerstatus='Active' ORDER BY firstname") or die(mysqli_error());
 					while($fetch = $query->fetch_array())
 						{
+							$id=$fetch['customerid'];
 				?>
 				<tr>
 					<td><?= $fetch['firstname'];?>&nbsp;<?php echo  $fetch['lastname'];?></td>
 					<td><?= $fetch['address']?></td>
 					<td><?= "<a href='tel:".$fetch['mobile']."'>". $fetch['mobile']."</a>"?></td>
 					<td><?= "<a href='mailto:".$fetch['email']."'>". $fetch['email']."</a>"?></td>
+					<td><?= "<a href='deactivate.php?id=".$id."' class='btn btn-danger' rel='facebox'><i class='fas fa-ban'></i> Deactivate</a>";?></td>
 				</tr>
 				<?php
 					}
+					/* discontinue */
+				 if(isset($_POST['deactivate'])){
+
+					$cid = $_POST['cid'];
+					$query2 = $conn->query("UPDATE `customer` SET `customerstatus` = 'DEACTIVATED' WHERE `customerid`='$cid'") or die(mysqli_error());
+
+					echo "<script>window.location = 'customer.php'</script>";
+				 }
 					$conn->close();
 				?>
 			</table>

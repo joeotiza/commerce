@@ -108,7 +108,7 @@
 									<tbody>
 									<?php
 
-										$query = $conn->query("SELECT * FROM `product` WHERE category='Snacks' ORDER BY `name`") or die(mysqli_error());
+										$query = $conn->query("SELECT * FROM `product` WHERE category='Snacks' AND productstatus='On sale' ORDER BY `name`") or die(mysqli_error());
 										while($fetch = $query->fetch_array())
 											{
 											$id = $fetch['productid'];
@@ -130,6 +130,7 @@
 										<?php
 										echo "<a href='stockin.php?id=".$id."' class='btn btn-success' rel='facebox'><i class='fas fa-plus-circle'></i> Stock In</a> ";
 										echo "<a href='stockout.php?id=".$id."' class='btn btn-danger' rel='facebox'><i class='fas fa-minus-circle'></i> Stock Out</a>";
+										echo "<br><br><a href='discontinue.php?id=".$id."' class='btn btn-primary' rel='facebox'><i class='fa fa-trash-o'></i> Discontinue</a>";
 										?>
 										</td>
 									</tr>
@@ -177,7 +178,18 @@
 					  echo "<script>window.location = 'admin_snacks.php'</script>";
 					  //header("location:admin_feature.php");
 					 }
-					 $conn->close();
+					 /* discontinue */
+				 if(isset($_POST['discontinue'])){
+
+					$pid = $_POST['pid'];
+
+					$query1 = $conn->query("UPDATE `stock` SET `quantity` = 0 WHERE `productid`='$pid'") or die(mysqli_error());
+					$query2 = $conn->query("UPDATE `product` SET `productstatus` = 'DISCONTINUED' WHERE `productid`='$pid'") or die(mysqli_error());
+
+					echo "<script>window.location = 'admin_snacks.php'</script>";
+					//header("location:admin_feature.php");
+				 }
+					$conn->close();
 					  ?>
 
 </body>

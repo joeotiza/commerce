@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 09:28 AM
+-- Generation Time: Dec 25, 2021 at 06:22 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -52,26 +52,27 @@ CREATE TABLE `customer` (
   `lastname` varchar(26) NOT NULL,
   `address` varchar(26) NOT NULL,
   `mobile` varchar(15) DEFAULT NULL,
-  `email` varchar(35) NOT NULL
+  `email` varchar(35) NOT NULL,
+  `customerstatus` varchar(15) NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerid`, `firstname`, `lastname`, `address`, `mobile`, `email`) VALUES
-(1, 'Hashirama', 'Senju', 'Parklands', '0712345678', 'konoha@gmail.com'),
-(2, 'Madara', 'Uchiha', 'Karen', '0722888111', 'tsukuyomi@gmail.com'),
-(3, 'Derrick', 'Kibuyu', 'Westlands', '0712345345', 'derrick@gmail.com'),
-(4, 'Joshua', 'Maina', 'Ngara', '0722111222', 'maina@gmail.com'),
-(5, 'Eric', 'Nyanjom', 'Madaraka', '0788286444', 'nyanjom@yahoo.com'),
-(6, 'Andrew', 'Adallah', 'Dagoretti', '0766952032', 'adallah@gmail.com'),
-(7, 'Minato', 'Namikaze', 'Mombasa Road', '0715875003', 'minato@gmail.com'),
-(8, 'Barrack', 'Obama', 'Parklands', '0715404404', 'obama@yahoo.com'),
-(9, 'Joan', 'Linda', 'Thika Road', '0776942007', 'joan@yahoo.com'),
-(10, 'Sharon', 'Neema', 'Karen', '0799673873', 'shalkido@gmail.com'),
-(11, 'Hinata', 'Hyuga', 'Ngara', '0741544764', 'hinata@gmail.com'),
-(12, 'Yvonne', 'Smith', 'Kasarani', '0755775563', 'yvonne@gmail.com');
+INSERT INTO `customer` (`customerid`, `firstname`, `lastname`, `address`, `mobile`, `email`, `customerstatus`) VALUES
+(1, 'Hashirama', 'Senju', 'Parklands', '0712345678', 'konoha@gmail.com', 'Active'),
+(2, 'Madara', 'Uchiha', 'Karen', '0722888111', 'tsukuyomi@gmail.com', 'Active'),
+(3, 'Derrick', 'Kibuyu', 'Westlands', '0712345345', 'derrick@gmail.com', 'Active'),
+(4, 'Joshua', 'Maina', 'Ngara', '0722111222', 'maina@gmail.com', 'Active'),
+(5, 'Eric', 'Nyanjom', 'Madaraka', '0788286444', 'nyanjom@yahoo.com', 'Active'),
+(6, 'Andrew', 'Adallah', 'Dagoretti', '0766952032', 'adallah@gmail.com', 'Active'),
+(7, 'Minato', 'Namikaze', 'Mombasa Road', '0715875003', 'minato@gmail.com', 'Active'),
+(8, 'Barrack', 'Obama', 'Parklands', '0715404404', 'obama@yahoo.com', 'Active'),
+(9, 'Joan', 'Linda', 'Thika Road', '0776942007', 'joan@yahoo.com', 'Active'),
+(10, 'Sharon', 'Neema', 'Karen', '0799673873', 'shalkido@gmail.com', 'Active'),
+(11, 'Hinata', 'Hyuga', 'Ngara', '0741544764', 'hinata@gmail.com', 'Active'),
+(12, 'Yvonne', 'Smith', 'Kasarani', '0755775563', 'yvonne@gmail.com', 'Active');
 
 -- --------------------------------------------------------
 
@@ -136,68 +137,69 @@ CREATE TABLE `product` (
   `category` varchar(20) NOT NULL,
   `brand` varchar(20) NOT NULL,
   `price` int(10) NOT NULL,
-  `image` text DEFAULT NULL
+  `image` text DEFAULT NULL,
+  `productstatus` varchar(20) NOT NULL DEFAULT 'On sale'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productid`, `name`, `category`, `brand`, `price`, `image`) VALUES
-(1, 'Hanan Tissue Paper', 'Household Supplies', 'Hanan', 30, 'tissue.jpeg'),
-(2, 'Carrefour Face Towel', 'Household Supplies', 'Carrefour', 90, 'face-towel.jpg'),
-(3, 'Pure Cotton Bath Towel', 'Household Supplies', 'Polo', 1500, 'bath-towel.jpg'),
-(4, 'Colgate Herbal Tooth Paste', 'Household Supplies', 'Colgate', 1100, 'colgate-herbal.jpg'),
-(5, 'Colgate Toothbrush Double Action', 'Household Supplies', 'Colgate', 80, 'colgate-double-action.jpg'),
-(6, 'Harpic Power Plus Lavender', 'Household Supplies', 'Harpic', 324, 'harpic-lavender.jpg'),
-(7, 'Dettol Glycerine Anti-bacterial Soap', 'Household Supplies', 'Dettol', 180, 'dettol-soap.jpg'),
-(8, 'Kiwi Black Polish', 'Household Supplies', 'Kiwi', 95, 'kiwi-black.png'),
-(9, 'Black Shoe Brush', 'Household Supplies', 'TeePee', 480, 'shoebrush.jpg'),
-(10, 'iPhone 13', 'Electronics', 'Apple', 85000, 'iphone13.jpg'),
-(11, 'iPhone 13 Pro Max', 'Electronics', 'Apple', 135000, 'iphone13-pro-max.jpg'),
-(12, 'MacBook Pro 14', 'Electronics', 'Apple', 155000, 'macbook14.jpg'),
-(13, 'MacBook Air', 'Electronics', 'Apple', 110000, 'macbook-air.jpg'),
-(14, 'MacBook Pro 16', 'Electronics', 'Apple', 230000, 'macbook16.jpg'),
-(15, 'Apple AirPods', 'Electronics', 'Apple', 13000, 'airpods.jpg'),
-(16, 'Apple AirPods Pro', 'Electronics', 'Apple', 20000, 'airpods-pro.jpg'),
-(17, 'MagSafe Charger', 'Electronics', 'Apple', 3000, 'magsafe.jpg'),
-(18, '45W USB-C charger', 'Electronics', 'Samsung', 4000, '45W-charger.jpg'),
-(19, 'Samsung Galaxy S21', 'Electronics', 'Samsung', 78000, 'samsung-s21.png'),
-(20, 'Samsung Galaxy S21 Ultra', 'Electronics', 'Samsung', 120000, 'Samsung-Galaxy-S21-ultra.jpg'),
-(21, 'Samsung Galaxy Buds', 'Electronics', 'Samsung', 10000, 'samsung-buds.jpg'),
-(22, 'Sony WH-1000XM4 Headphones', 'Electronics', 'Sony', 32000, 'sonyxm4.jpg'),
-(23, 'Bose QC 35 Headphones', 'Electronics', 'Bose', 32000, 'bose-qc35.jpg'),
-(24, 'PlayStation 5', 'Electronics', 'Sony', 60000, 'ps5.jpg'),
-(25, 'Dualsense Wireless Controller', 'Electronics', 'Sony', 8000, 'dualsense.jpg'),
-(26, 'XBOX Series X', 'Electronics', 'Microsoft', 60000, 'Xbox-Series-X.jpg'),
-(27, 'XBOX Wireless Controller', 'Electronics', 'Microsoft', 8000, 'xbox_controller.jpg'),
-(28, 'Krackles Tangy Tomato Flavored Potato Crisps', 'Snacks', 'Krackles', 44, 'tangy-tomato.jpg'),
-(29, 'Pringles Sour Cream & Onion Potato Crisps', 'Snacks', 'Pringles', 345, 'pringles.jpg'),
-(30, 'Cadbury Top Deck chocolate', 'Snacks', 'Cadbury', 120, 'chocolate.png'),
-(31, 'Delamere Strawberry Yoghurt', 'Drinks', 'Delamere', 100, 'strawberry-yoghurt.png'),
-(32, 'Afia Mango Juice', 'Drinks', 'Afia', 60, 'mango-juice.jpg'),
-(33, 'Afia Apple Juice', 'Drinks', 'Afia', 60, 'apple-juice.jpg'),
-(34, 'Dasani Mineral Water', 'Drinks', 'Dasani', 30, 'dasani.jpg'),
-(35, 'Fanta Orange Soda', 'Drinks', 'Coca-Cola', 60, 'fanta.png'),
-(36, 'Coca-Cola diet coke', 'Drinks', 'Coca-Cola', 60, 'coke-zero.jpeg'),
-(37, 'Samsung S21 phone case', 'Accessories', 'Samsung', 2500, 's21-case.jpg'),
-(38, 'Samsung S21 Ultra Alcantara case', 'Accessories', 'Samsung', 2600, 's21-ultra-alcantara.png'),
-(39, 'iPhone 13 leather case', 'Accessories', 'Apple', 3000, 'iphone13-case.jpg'),
-(40, 'iPhone 13 Pro Max leather case', 'Accessories', 'Apple', 3000, 'iphone13promax-case.jpg'),
-(41, 'Apple Watch Series 7', 'Accessories', 'Apple', 26000, 'apple-watch.jpg'),
-(42, 'Samsung Galaxy Watch Active', 'Accessories', 'Samsung', 20000, 'samsung-watch.jpg'),
-(43, 'Leather Jacket', 'Clothing', 'Gucci', 34000, 'gucci-leather-jacket.jpg'),
-(44, '3 piece suit', 'Clothing', 'Louis Vuitton', 60000, 'LVthree-piece-suit.jpg'),
-(45, 'Beanie Hat', 'Clothing', 'Nike', 5000, 'nike-beanie.jpg'),
-(46, 'Nike Air Jordans', 'Clothing', 'Nike', 30000, 'nike-jordans.jpg'),
-(47, 'Official Black Leather shoes', 'Clothing', 'Bata', 15000, 'leather-shoes.jpg'),
-(48, 'Cotton Socks', 'Clothing', 'Peak', 600, 'peak-socks.jpg'),
-(49, 'Blue Ball Point Pen', 'Stationery', 'BIC', 30, 'blue-pen.jpg'),
-(50, 'HB Pencil', 'Stationery', 'Steadler', 50, 'HB-pencil.jpg'),
-(51, 'Black Ball Point Pen', 'Stationery', 'BIC', 30, 'black-pen.jpg'),
-(52, 'A4 Single ruled 120pg', 'Stationery', 'Kartasi', 120, 'A4-120pg.png'),
-(53, 'Loose Leaf 50 sheets', 'Stationery', 'Kartasi', 80, 'loose-leaf.jpg'),
-(54, 'Oreo dipped cookies', 'Snacks', 'Cadbury', 150, '46559809438418204cadbury-oreo-cadbury-dipped-cookies-150-g-0-20210813.jpg');
+INSERT INTO `product` (`productid`, `name`, `category`, `brand`, `price`, `image`, `productstatus`) VALUES
+(1, 'Hanan Tissue Paper', 'Household Supplies', 'Hanan', 30, 'tissue.jpeg', 'On sale'),
+(2, 'Carrefour Face Towel', 'Household Supplies', 'Carrefour', 90, 'face-towel.jpg', 'On sale'),
+(3, 'Pure Cotton Bath Towel', 'Household Supplies', 'Polo', 1500, 'bath-towel.jpg', 'On sale'),
+(4, 'Colgate Herbal Tooth Paste', 'Household Supplies', 'Colgate', 1100, 'colgate-herbal.jpg', 'On sale'),
+(5, 'Colgate Toothbrush Double Action', 'Household Supplies', 'Colgate', 80, 'colgate-double-action.jpg', 'On sale'),
+(6, 'Harpic Power Plus Lavender', 'Household Supplies', 'Harpic', 324, 'harpic-lavender.jpg', 'On sale'),
+(7, 'Dettol Glycerine Anti-bacterial Soap', 'Household Supplies', 'Dettol', 180, 'dettol-soap.jpg', 'On sale'),
+(8, 'Kiwi Black Polish', 'Household Supplies', 'Kiwi', 95, 'kiwi-black.png', 'On sale'),
+(9, 'Black Shoe Brush', 'Household Supplies', 'TeePee', 480, 'shoebrush.jpg', 'On sale'),
+(10, 'iPhone 13', 'Electronics', 'Apple', 85000, 'iphone13.jpg', 'On sale'),
+(11, 'iPhone 13 Pro Max', 'Electronics', 'Apple', 135000, 'iphone13-pro-max.jpg', 'On sale'),
+(12, 'MacBook Pro 14', 'Electronics', 'Apple', 155000, 'macbook14.jpg', 'On sale'),
+(13, 'MacBook Air', 'Electronics', 'Apple', 110000, 'macbook-air.jpg', 'On sale'),
+(14, 'MacBook Pro 16', 'Electronics', 'Apple', 230000, 'macbook16.jpg', 'On sale'),
+(15, 'Apple AirPods', 'Electronics', 'Apple', 13000, 'airpods.jpg', 'On sale'),
+(16, 'Apple AirPods Pro', 'Electronics', 'Apple', 20000, 'airpods-pro.jpg', 'On sale'),
+(17, 'MagSafe Charger', 'Electronics', 'Apple', 3000, 'magsafe.jpg', 'On sale'),
+(18, '45W USB-C charger', 'Electronics', 'Samsung', 4000, '45W-charger.jpg', 'On sale'),
+(19, 'Samsung Galaxy S21', 'Electronics', 'Samsung', 78000, 'samsung-s21.png', 'On sale'),
+(20, 'Samsung Galaxy S21 Ultra', 'Electronics', 'Samsung', 120000, 'Samsung-Galaxy-S21-ultra.jpg', 'On sale'),
+(21, 'Samsung Galaxy Buds', 'Electronics', 'Samsung', 10000, 'samsung-buds.jpg', 'On sale'),
+(22, 'Sony WH-1000XM4 Headphones', 'Electronics', 'Sony', 32000, 'sonyxm4.jpg', 'On sale'),
+(23, 'Bose QC 35 Headphones', 'Electronics', 'Bose', 32000, 'bose-qc35.jpg', 'On sale'),
+(24, 'PlayStation 5', 'Electronics', 'Sony', 60000, 'ps5.jpg', 'On sale'),
+(25, 'Dualsense Wireless Controller', 'Electronics', 'Sony', 8000, 'dualsense.jpg', 'On sale'),
+(26, 'XBOX Series X', 'Electronics', 'Microsoft', 60000, 'Xbox-Series-X.jpg', 'On sale'),
+(27, 'XBOX Wireless Controller', 'Electronics', 'Microsoft', 8000, 'xbox_controller.jpg', 'On sale'),
+(28, 'Krackles Tangy Tomato Flavored Potato Crisps', 'Snacks', 'Krackles', 44, 'tangy-tomato.jpg', 'On sale'),
+(29, 'Pringles Sour Cream & Onion Potato Crisps', 'Snacks', 'Pringles', 345, 'pringles.jpg', 'On sale'),
+(30, 'Cadbury Top Deck chocolate', 'Snacks', 'Cadbury', 120, 'chocolate.png', 'On sale'),
+(31, 'Delamere Strawberry Yoghurt', 'Drinks', 'Delamere', 100, 'strawberry-yoghurt.png', 'On sale'),
+(32, 'Afia Mango Juice', 'Drinks', 'Afia', 60, 'mango-juice.jpg', 'On sale'),
+(33, 'Afia Apple Juice', 'Drinks', 'Afia', 60, 'apple-juice.jpg', 'On sale'),
+(34, 'Dasani Mineral Water', 'Drinks', 'Dasani', 30, 'dasani.jpg', 'On sale'),
+(35, 'Fanta Orange Soda', 'Drinks', 'Coca-Cola', 60, 'fanta.png', 'On sale'),
+(36, 'Coca-Cola diet coke', 'Drinks', 'Coca-Cola', 60, 'coke-zero.jpeg', 'On sale'),
+(37, 'Samsung S21 phone case', 'Accessories', 'Samsung', 2500, 's21-case.jpg', 'On sale'),
+(38, 'Samsung S21 Ultra Alcantara case', 'Accessories', 'Samsung', 2600, 's21-ultra-alcantara.png', 'On sale'),
+(39, 'iPhone 13 leather case', 'Accessories', 'Apple', 3000, 'iphone13-case.jpg', 'On sale'),
+(40, 'iPhone 13 Pro Max leather case', 'Accessories', 'Apple', 3000, 'iphone13promax-case.jpg', 'On sale'),
+(41, 'Apple Watch Series 7', 'Accessories', 'Apple', 26000, 'apple-watch.jpg', 'On sale'),
+(42, 'Samsung Galaxy Watch Active', 'Accessories', 'Samsung', 20000, 'samsung-watch.jpg', 'On sale'),
+(43, 'Leather Jacket', 'Clothing', 'Gucci', 34000, 'gucci-leather-jacket.jpg', 'On sale'),
+(44, '3 piece suit', 'Clothing', 'Louis Vuitton', 60000, 'LVthree-piece-suit.jpg', 'On sale'),
+(45, 'Beanie Hat', 'Clothing', 'Nike', 5000, 'nike-beanie.jpg', 'On sale'),
+(46, 'Nike Air Jordans', 'Clothing', 'Nike', 30000, 'nike-jordans.jpg', 'On sale'),
+(47, 'Official Black Leather shoes', 'Clothing', 'Bata', 15000, 'leather-shoes.jpg', 'On sale'),
+(48, 'Cotton Socks', 'Clothing', 'Peak', 600, 'peak-socks.jpg', 'On sale'),
+(49, 'Blue Ball Point Pen', 'Stationery', 'BIC', 30, 'blue-pen.jpg', 'On sale'),
+(50, 'HB Pencil', 'Stationery', 'Steadler', 50, 'HB-pencil.jpg', 'On sale'),
+(51, 'Black Ball Point Pen', 'Stationery', 'BIC', 30, 'black-pen.jpg', 'On sale'),
+(52, 'A4 Single ruled 120pg', 'Stationery', 'Kartasi', 120, 'A4-120pg.png', 'On sale'),
+(53, 'Loose Leaf 50 sheets', 'Stationery', 'Kartasi', 80, 'loose-leaf.jpg', 'On sale'),
+(54, 'Oreo dipped cookies', 'Snacks', 'Cadbury', 150, '46559809438418204cadbury-oreo-cadbury-dipped-cookies-150-g-0-20210813.jpg', 'On sale');
 
 -- --------------------------------------------------------
 
@@ -256,7 +258,7 @@ INSERT INTO `stock` (`productid`, `quantity`) VALUES
 (39, 4),
 (40, 6),
 (41, 4),
-(42, 11),
+(42, 9),
 (43, 9),
 (44, 4),
 (45, 10),
