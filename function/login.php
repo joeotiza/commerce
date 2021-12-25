@@ -8,7 +8,7 @@ if (isset($_POST['login']))
 		$password=$_POST['password'];
 
 
-		$result=$conn->query("SELECT * FROM customer LEFT JOIN customerpassword ON customer.customerid = customerpassword.customerid WHERE email='$email' AND password=SHA('$password') ")
+		$result=$conn->query("SELECT * FROM customer LEFT JOIN customerpassword ON customer.customerid = customerpassword.customerid WHERE email='$email' AND password=SHA('$password') AND customerstatus='Active'")
 				or die ('cannot login' . mysqli_error());
 
 		$row=$result->fetch_array();
@@ -23,7 +23,7 @@ if (isset($_POST['login']))
 
 		else
 		{
-			echo "<script>alert('Invalid Email or Password'); window.location.href='home.php';</script>";
+			echo "<script>alert('Account deactivated or Invalid Email or Password'); window.location.href='home.php';</script>";
 		}
 }
 
