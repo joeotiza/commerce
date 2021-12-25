@@ -33,7 +33,7 @@
 
 					<?php
 
-						$query = $conn->query("SELECT * FROM product LEFT JOIN stock ON product.productid=stock.productid WHERE category='Drinks' AND stock.quantity>0 ORDER BY brand, name") or die (mysqli_error());
+						$query = $conn->query("SELECT * FROM product LEFT JOIN stock ON product.productid=stock.productid WHERE category='Drinks' AND productstatus='On sale' AND stock.quantity>0 ORDER BY brand, name") or die (mysqli_error());
 
 							while($fetch = $query->fetch_array())
 								{

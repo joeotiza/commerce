@@ -154,7 +154,7 @@ if (isset($_SESSION['cart'])){
 						$in_cart=substr($in_cart,0,-1);
 						//echo $in_cart;
 
- 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
+ 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart) AND productstatus='On sale') _t ORDER BY RAND() LIMIT 6;") or die (mysqli_error());
 
  							while($fetch = $query->fetch_array())
  							{

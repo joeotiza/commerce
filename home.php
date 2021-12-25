@@ -49,7 +49,7 @@ if (isset($_SESSION['cart'])){
 
 						//echo $rec_ids;
 
- 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart)) _t ORDER BY RAND() LIMIT 9;") or die (mysqli_error());
+ 						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productid IN ($rec_ids) AND productid not in ($in_cart) AND productstatus='On sale') _t ORDER BY RAND() LIMIT 9;") or die (mysqli_error());
 
  							while($fetch = $query->fetch_array())
  							{
@@ -80,7 +80,7 @@ if (isset($_SESSION['cart'])){
 
 							else{
 
-						$query = $conn->query("SELECT * FROM (SELECT * FROM product) _t ORDER BY RAND() LIMIT 9;") or die (mysqli_error());
+						$query = $conn->query("SELECT * FROM (SELECT * FROM product WHERE productstatus='On sale') _t ORDER BY RAND() LIMIT 9;") or die (mysqli_error());
 
 							while($fetch = $query->fetch_array())
 								{
