@@ -20,9 +20,10 @@
 
 		//set the transaction ID as a randomly generated number from random_code.php
 		$t_id=NULL;
+		include ("random_code.php");
 		while ($t_id==NULL)
 		{
-			include ("random_code.php");
+			$r_id = createRandomNumber();
 			$result=$conn->query("SELECT * FROM transaction WHERE transactionid='$r_id'") or die (mysqli_error());
 			$matches = $result->num_rows;
 

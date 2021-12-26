@@ -17,5 +17,5 @@ function createRandomNumber()
 }
 
 /*values*/
-$r_id = createRandomNumber();
+//$r_id = createRandomNumber();
 ?>
