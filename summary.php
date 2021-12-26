@@ -73,11 +73,32 @@
 	echo "<h4>Paying via ".$payBy.".</h4>&emsp;".$payimg;
 	?>
 
+<?php
+$paypal_url='https://www.sandbox.paypal.com/cgi-bin/webscr'; // Test Paypal API URL
+$paypal_id='joseph093084@strathmore.edu'; // Business email ID
+ ?>
 
 	<div class='pull-right' style="margin-left:auto;">
 <div class="">
-    <form action="function/confirm.php" method="post" >
-			<button name='submit' style='border: none; background-color: transparent;'><img src='img/confirm.png' style='height:80px;' border='0' alt='Confirm'></button>
+    <form action=<?= ($payBy=='PayPal') ? $paypal_url : "function/confirm.php" ?> method="post" >
+    <input type="hidden" name="business" value="<?php echo $paypal_id; ?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="item_name" value="EasyBuy">
+    <input type="hidden" name="item_number" value="<?php echo $t_id; ?>">
+    <input type="hidden" name="credits" value="510">
+    <input type="hidden" name="userid" value="1">
+    <input type="hidden" name="amount" value="<?php echo ((double)$amnt/113.15); ?>">
+    <input type="hidden" name="cpp_header_image" value="http://www.phpgang.com/wp-content/uploads/gang.jpg">
+    <input type="hidden" name="no_shipping" value="1">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="hidden" name="handling" value="0">
+    <input type="hidden" name="cancel_return" value=<?= "http://127.0.0.1:80/commerce/function/cancel.php?id=".$id."&tid=".$t_id.">" ?>
+    <input type="hidden" name="return" value=<?= "http://127.0.0.1:80/commerce/function/success.php?id=".$id."&tid=".$t_id.">" ?>
+    <?= ($payBy=='PayPal') ? "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>
+    <img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>" :
+
+			"<button name='submit' style='border: none; background-color: transparent;'><img src='img/confirm.png' style='height:80px;' border='0' alt='Confirm'></button>"
+			?>
 		</form>
 </div>
 </div>
