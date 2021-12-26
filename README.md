@@ -25,3 +25,5 @@ Developed on:
 
 To run the customer/default module type "localhost/commerce" on the address bar  
 To run the admin module type "localhost/commerce/admin" (username:admin)(password:admin)
+
+Use PayPal sandbox to create simulation accounts for payments via PayPal.
