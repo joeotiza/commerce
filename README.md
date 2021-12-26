@@ -1,4 +1,6 @@
 # EasyBuy
+A RECOMMENDER SYSTEM FOR A WEB BASED E-COMMERCE PLATFORM USING K-MEANS CLUSTERING
+
 Have XAMPP preinstalled.
 
 Start Apache and MySQL from the XAMPP control panel.
