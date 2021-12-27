@@ -1,6 +1,8 @@
 # EasyBuy
 **A RECOMMENDER SYSTEM FOR A WEB BASED E-COMMERCE PLATFORM USING K-MEANS CLUSTERING**
 
+## Prerequisites
+
 Have XAMPP preinstalled.
 
 Start Apache and MySQL from the XAMPP control panel.
@@ -19,9 +21,11 @@ In the command line or windows powershell, type the following commands for the k
   
   Open "start" and search "app execution aliases". Turn off 'app installers' for python so they are not invoked by the python3 keyword when running python files via command prompt.
   
-Developed on:  
+## Developed on:  
 - PHP version 8.0.13  
 - Python version 3.9
+
+## Demonstration
 
 To run the customer/default module type "localhost/commerce" on the address bar  
 To run the admin module type "localhost/commerce/admin" (username:admin)(password:admin)
