@@ -23,7 +23,7 @@ if (isset($_POST['login']))
 
 		else
 		{
-			echo "<script>alert('Account deactivated or Invalid Email or Password'); window.location.href='home.php';</script>";
+			echo "<script>alert('Invalid Email or Password'); window.location.href='home.php';</script>";
 		}
 }
 
