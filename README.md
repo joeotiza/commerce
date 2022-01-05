@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-Have **XAMPP** preinstalled.
+Have **XAMPP** and **Python 3.X** preinstalled.
 
 Start **Apache** and **MySQL** from the XAMPP control panel.
 
